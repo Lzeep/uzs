@@ -18,3 +18,23 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', function(){
+    return view('welcome');
+});
+
+//Route::resource('/tObject', 'TObjectsController')-only([
+//    'index', 'show', 'create', 'store',
+//]);
+Route::get('/tObject', 'TObjectsController@index')->name('index');
+
+Route::get('/tObject/{tObject}', 'TObjectsController@show')->name('show');
+Route::get('/tObject/{tObject}/edit', 'TObjectsController@edit')->name('edit');
+
+Route::get('/map', function(){
+    return view('front');
+});
+
+
+
+

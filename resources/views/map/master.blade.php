@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
         <title>
-            Laramap
+            Map
         </title>
 
     </meta>
@@ -20,7 +20,7 @@
 {{--    Googlee maps api    --}}
 
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVE6T2FWRqt4QN-lh-0MAinlEVkQ4rLuY">
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1GaGBUDkZnv7HpZlJ0cIZkDAmNy8X28c">
 </script>
 <script src="{{asset('js/script.js')}}"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
