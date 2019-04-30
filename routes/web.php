@@ -11,29 +11,40 @@
 |
 */
 
+Route::get('api/objects', 'TObjectsController@index');
+
 Route::get('/', function () {
     return view('front');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+
+//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', function(){
     return view('welcome');
 });
 
-//Route::resource('/tObject', 'TObjectsController')-only([
-//    'index', 'show', 'create', 'store',
-//]);
-Route::get('/tObject', 'TObjectsController@index')->name('index');
+Route::resource('/tObject', 'TObjectsController');
 
-Route::get('/tObject/{tObject}', 'TObjectsController@show')->name('show');
-Route::get('/tObject/{tObject}/edit', 'TObjectsController@edit')->name('edit');
+
+Route::get('/search', 'TObjectsController@search');
+
+Route::get('/getemployees', 'EmployeeController@getEmployees')->name('datatables.getemployees');
+Route::resource('employee', 'EmployeeController');
+
+//Route::get('/tObject/{tObject}', 'TObjectsController@show')->name('show');
+//Route::get('/tObject/{tObject}/edit', 'TObjectsController@edit')->name('edit');
 
 Route::get('/map', function(){
     return view('front');
+
+
 });
+
+
 
 
 

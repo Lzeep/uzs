@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\TObject;
+
 use App\Employee;
 use App\Objecct;
 use App\StatLand;
 use App\StatObject;
+use App\TObject;
 use App\Violation;
+use Illuminate\Foundation\Console\Presets\React;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -29,6 +31,8 @@ class TObjectsController extends Controller
             'statLands'=>$statLands,
         ]);
 
+
+
     }
 
     /**
@@ -39,7 +43,7 @@ class TObjectsController extends Controller
     public function create()
     {
         $employees = Employee::all();
-        $objeccts = Objecct::all();
+        $objects = Objecct::all();
         $statlands = StatLand::all();
         $statobjects = StatObject::all();
         $violations = Violation::all();
@@ -50,10 +54,17 @@ class TObjectsController extends Controller
             'tObjects'=>$tObjects,
             'violations'=>$violations,
             'statObjects'=>$statobjects,
-            'stat:ands'=>$statlands,
-            'objeccts'=>$objeccts,
+            'statlands'=>$statlands,
+            'objeccts'=>$objects,
             'employees'=>$employees,
         ]);
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $tObjects = DB::table('t_objects')->where('Owner_name', 'like', '%'.$search.'%')->paginate(15);
+        return view('tObject.index', ['tObjects'=>$tObjects]);
     }
 
     /**

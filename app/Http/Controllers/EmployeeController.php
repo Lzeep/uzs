@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Employee;
+use App\Position;
+use DB;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
+use Yajra\DataTables\DataTables;
 
 class EmployeeController extends Controller
 {
@@ -14,7 +18,22 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        //
+        return view('employee.index');
+    }
+
+    public function getEmployees(Request $request)
+    {
+        $employees = Employee::with('position')->select();
+
+        return Datatables::of($employees)
+            ->make(true);
+    }
+
+public function filter(Request $request){
+        $employee = Employee::select('*');
+
+
+
     }
 
     /**

@@ -11,8 +11,8 @@ class Employee extends Model
         return $this->hasMany('App\TObject');
     }
 
-    public function Post()
+    public function position()
     {
-        return $this->belongsTo('App\Position');
+        return $this->belongsTo('App\Position', 'Position');
     }
 }

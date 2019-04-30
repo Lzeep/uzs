@@ -2,12 +2,22 @@
 
 @section('content')
 
-
-
-    <div class="container">
-
-        <div class="row">
-            <table class="table-striped">
+<div class="row">
+    <div class="col-md-6">
+        <h1>Информация об объектах</h1>
+    </div>
+    <div class="col-md-4">
+        <form action="/search" method="get">
+            <div class="input-group">
+                <input type="search" name="search" class="form-control">
+                <span class="input-group-prepend ">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
+        <table class="table table-bordered">
                 <thead class="thead-dark">
                 <th scope="col">#</th>
                 <th scope="col">Адрес</th>
