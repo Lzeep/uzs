@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class RenameColumnPositionToPositionIdToEmployeeTable extends Migration
+class CreateObektsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class RenameColumnPositionToPositionIdToEmployeeTable extends Migration
      */
     public function up()
     {
-        Schema::create('employees', function (Blueprint $table) {
-            $table->renameColumn('Position', 'position_id');
+        Schema::create('obekts', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('Address_of_object');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +27,6 @@ class RenameColumnPositionToPositionIdToEmployeeTable extends Migration
      */
     public function down()
     {
-        Schema::create('employees', function (Blueprint $table) {
-            $table->renameColumn('position_id', 'Position');
-        });
+        Schema::dropIfExists('obekts');
     }
 }

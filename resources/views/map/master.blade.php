@@ -1,32 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
+{{--<!DOCTYPE html>--}}
+{{--<html xmlns="http://www.w3.org/1999/xhtml">--}}
+{{--<head>--}}
+    {{--<title>Быстрый старт. Размещение интерактивной карты на странице</title>--}}
+    {{--<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />--}}
+    {{--<script src="https://api-maps.yandex.ru/2.1/?apikey=a2435f91-837f-4a88-87c0-7ac7813eb317&lang=ru_RU" type="text/javascript">--}}
+    {{--</script>--}}
+    {{--<script type="text/javascript">--}}
+        {{--ymaps.ready(init);--}}
+        {{--function init(){--}}
+            {{--var myMap = new ymaps.Map("map", {--}}
+                {{--center: [55.76, 37.64],--}}
+                {{--zoom: 7--}}
+            {{--});--}}
+           {{--var myPolyline = new myPolyline([--}}
+               {{--[55.86, 37.84],--}}
+               {{--[55.70, 37.55],--}}
+               {{--[55.8, 37.4]--}}
+           {{--], {},--}}
+            {{--{--}}
+                {{--strokeWidth: 6,--}}
+                {{--strokeColor: '#0000FF',--}}
+                {{--draggable: true--}}
+            {{--});--}}
+            {{--myPolyline.editor.startEditing();--}}
+        {{--}--}}
+    {{--</script>--}}
+{{--</head>--}}
+
+{{--<body>--}}
+{{--<div id="map" style="width: 600px; height: 400px"></div>--}}
+{{--</body>--}}
+
+{{--</html>--}}
+
+        <!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8">
-        <title>
-            Map
-        </title>
+    <title>Редактор круга</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--
+        Укажите свой API-ключ. Тестовый ключ НЕ БУДЕТ работать на других сайтах.
+        Получить ключ можно в Кабинете разработчика: https://developer.tech.yandex.ru/keys/
+    -->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=a2435f91-837f-4a88-87c0-7ac7813eb317&lang=ru_RU" type="text/javascript"></script>
+    <script src="{{ asset("js/mapsBishkek.js") }}"></script>
 
-    </meta>
-    <link rel="stylesheet" href="{{asset('css/main.css')}}">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    </link>
-
+    <style>
+        html, body, #map {
+            width: 100%; height: 100%; padding: 0; margin: 0;
+        }
+    </style>
 </head>
 <body>
-@yield('content')
-    <script crossorigin="anonymous" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" src="https://code.jquery.com/jquery-3.1.0.min.js">
-    </script>
-
-{{--    Googlee maps api    --}}
-
-
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1GaGBUDkZnv7HpZlJ0cIZkDAmNy8X28c">
-</script>
-<script src="{{asset('js/script.js')}}"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
-</script>
-
-@yield('js')
-
+<div id="map"></div>
 </body>
 </html>

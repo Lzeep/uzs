@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
+
         <div class="row">
-            <div class="col-12">
+            <div class="col-12" style="overflow: auto;">
                 <table class="table table-bordered" id="employees-table">
                     <thead>
                     <tr>
@@ -16,12 +17,31 @@
                         <th>Дата создания</th>
                     </tr>
                     </thead>
+
+                    <tfoot>
+                    <tr>
+                        <th>Id</th>
+                        <th>ФИО</th>
+                        <th>Адрес</th>
+                        <th>Телефон</th>
+                        <th></th>
+                        <th></th>
+                        <th>Дата создания</th>
+                    </tr>
+                    </tfoot>
                 </table>
             </div>
         </div>
     </div>
 @stop
+@push('styles')
+    <style>
+        table {
+            width:100%;
 
+        }
+    </style>
+@endpush
 @push('scripts')
     <script>
         $(function() {
@@ -34,11 +54,36 @@
                     { data: 'Full_name', name: 'Full_name' },
                     { data: 'Address', name: 'Address' },
                     { data: 'Phone', name: 'Phone' },
-                    { data: 'position.Position', name: 'position.Position' },
-                    { data: 'District', name: 'District' },
+                    { data: 'position', name: 'position.name' },
+                    { data: 'district_id', name: 'district_id' },
                     { data: 'created_at', name: 'created_at' },
                 ]
             });
         });
+        $(document).ready(function() {
+            // Setup - add a text input to each footer cell
+            $('#employees-table tfoot th').each( function () {
+                var title = $(this).text();
+                if (title) {
+                    $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+                }
+            } );
+
+            // DataTable
+            var table = $('#employees-table').DataTable();
+
+            // Apply the search
+            table.columns().every( function () {
+                var that = this;
+
+                $( 'input', this.footer() ).on( 'keyup change', function () {
+                    if ( that.search() !== this.value ) {
+                        that
+                            .search( this.value )
+                            .draw();
+                    }
+                } );
+            } );
+        } );
     </script>
 @endpush

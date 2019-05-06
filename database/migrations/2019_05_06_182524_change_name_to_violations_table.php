@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateViolationsTable extends Migration
+class ChangeNameToViolationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateViolationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('violations', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('Violation');
-            $table->timestamps();
+        Schema::table('violations', function (Blueprint $table) {
+            $table->renameColumn('Vioaltion', 'name');
         });
     }
 
@@ -27,6 +25,8 @@ class CreateViolationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('violations');
+        Schema::table('violations', function (Blueprint $table) {
+            $table->renameColumn('name', 'Vioaltion');
+        });
     }
 }

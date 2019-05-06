@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Employee;
-
-use DB;
+use App\Obekt;
 use Illuminate\Http\Request;
 
-use Yajra\DataTables\DataTables;
-
-class EmployeeController extends Controller
+class ObektController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,25 +14,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        return view('employee.index');
-    }
-
-    public function getEmployees(Request $request)
-    {
-        $employees = Employee::with('position')->select();
-
-        return Datatables::of($employees)
-            ->addColumn('position', function ($item) {
-                return $item->position->name;
-            })
-            ->make(true);
-    }
-
-public function filter(Request $request){
-        $employee = Employee::select('*');
-
-
-
+        //
     }
 
     /**
@@ -63,10 +41,10 @@ public function filter(Request $request){
     /**
      * Display the specified resource.
      *
-     * @param  \App\Employee  $employee
+     * @param  \App\Obekt  $obekt
      * @return \Illuminate\Http\Response
      */
-    public function show(Employee $employee)
+    public function show(Obekt $obekt)
     {
         //
     }
@@ -74,10 +52,10 @@ public function filter(Request $request){
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Employee  $employee
+     * @param  \App\Obekt  $obekt
      * @return \Illuminate\Http\Response
      */
-    public function edit(Employee $employee)
+    public function edit(Obekt $obekt)
     {
         //
     }
@@ -86,10 +64,10 @@ public function filter(Request $request){
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Employee  $employee
+     * @param  \App\Obekt  $obekt
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Employee $employee)
+    public function update(Request $request, Obekt $obekt)
     {
         //
     }
@@ -97,10 +75,10 @@ public function filter(Request $request){
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Employee  $employee
+     * @param  \App\Obekt  $obekt
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Employee $employee)
+    public function destroy(Obekt $obekt)
     {
         //
     }

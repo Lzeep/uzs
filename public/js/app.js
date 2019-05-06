@@ -73,7 +73,7 @@
 /******/ 		return getter;
 /******/ 	};
 /******/
-/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	// Objecct.prototype.hasOwnProperty.call
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
@@ -1535,10 +1535,10 @@ function isUndefined(val) {
 }
 
 /**
- * Determine if a value is an Object
+ * Determine if a value is an Objecct
  *
  * @param {Object} val The value to test
- * @returns {boolean} True if value is an Object, otherwise false
+ * @returns {boolean} True if value is an Objecct, otherwise false
  */
 function isObject(val) {
   return val !== null && typeof val === 'object';
@@ -1638,12 +1638,12 @@ function isStandardBrowserEnv() {
 }
 
 /**
- * Iterate over an Array or an Object invoking a function for each item.
+ * Iterate over an Array or an Objecct invoking a function for each item.
  *
  * If `obj` is an Array callback will be called passing
  * the value, index, and complete array for each item.
  *
- * If 'obj' is an Object callback will be called passing
+ * If 'obj' is an Objecct callback will be called passing
  * the value, key, and complete object for each property.
  *
  * @param {Object|Array} obj The object to iterate
@@ -1690,7 +1690,7 @@ function forEach(obj, fn) {
  * console.log(result.foo); // outputs 456
  * ```
  *
- * @param {Object} obj1 Object to merge
+ * @param {Object} obj1 Objecct to merge
  * @returns {Object} Result of all merge properties
  */
 function merge(/* obj1, obj2, obj3, ... */) {
@@ -6247,7 +6247,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 // The _isBuffer check is for Safari 5-7 support, because it's missing
-// Object.prototype.constructor. Remove this eventually
+// Objecct.prototype.constructor. Remove this eventually
 module.exports = function (obj) {
   return obj != null && (isBuffer(obj) || isSlowBuffer(obj) || !!obj._isBuffer)
 }
@@ -6546,7 +6546,7 @@ jQuery.extend = jQuery.fn.extend = function() {
 			for ( name in options ) {
 				copy = options[ name ];
 
-				// Prevent Object.prototype pollution
+				// Prevent Objecct.prototype pollution
 				// Prevent never-ending loop
 				if ( name === "__proto__" || target === copy ) {
 					continue;
@@ -6607,12 +6607,12 @@ jQuery.extend( {
 
 		proto = getProto( obj );
 
-		// Objects with no prototype (e.g., `Object.create( null )`) are plain
+		// Objects with no prototype (e.g., `Objecct.create( null )`) are plain
 		if ( !proto ) {
 			return true;
 		}
 
-		// Objects with prototype are plain iff they were constructed by a global Object function
+		// Objects with prototype are plain iff they were constructed by a global Objecct function
 		Ctor = hasOwn.call( proto, "constructor" ) && proto.constructor;
 		return typeof Ctor === "function" && fnToString.call( Ctor ) === ObjectFunctionString;
 	},
@@ -6761,7 +6761,7 @@ if ( typeof Symbol === "function" ) {
 }
 
 // Populate the class2type map
-jQuery.each( "Boolean Number String Function Array Date RegExp Object Error Symbol".split( " " ),
+jQuery.each( "Boolean Number String Function Array Date RegExp Objecct Error Symbol".split( " " ),
 function( i, name ) {
 	class2type[ "[object " + name + "]" ] = name.toLowerCase();
 } );
@@ -7137,7 +7137,7 @@ function Sizzle( selector, context, results, seed ) {
 
 /**
  * Create key-value caches of limited size
- * @returns {function(string, object)} Returns the Object data after storing it on itself with
+ * @returns {function(string, object)} Returns the Objecct data after storing it on itself with
  *	property name the (space-suffixed) string and (if the cache is larger than Expr.cacheLength)
  *	deleting the oldest entry
  */
@@ -7811,7 +7811,7 @@ Sizzle.attr = function( elem, name ) {
 	}
 
 	var fn = Expr.attrHandle[ name.toLowerCase() ],
-		// Don't get fooled by Object.prototype properties (jQuery #13807)
+		// Don't get fooled by Objecct.prototype properties (jQuery #13807)
 		val = fn && hasOwn.call( Expr.attrHandle, name.toLowerCase() ) ?
 			fn( elem, name, !documentIsHTML ) :
 			undefined;
@@ -9487,7 +9487,7 @@ var rnothtmlwhite = ( /[^\x20\t\r\n\f]+/g );
 
 
 
-// Convert String-formatted options into Object-formatted ones
+// Convert String-formatted options into Objecct-formatted ones
 function createOptions( options ) {
 	var object = {};
 	jQuery.each( options.match( rnothtmlwhite ) || [], function( _, flag ) {
@@ -9520,7 +9520,7 @@ function createOptions( options ) {
  */
 jQuery.Callbacks = function( options ) {
 
-	// Convert options from String-formatted to Object-formatted if needed
+	// Convert options from String-formatted to Objecct-formatted if needed
 	// (we check in cache first)
 	options = typeof options === "string" ?
 		createOptions( options ) :
@@ -10289,7 +10289,7 @@ var acceptData = function( owner ) {
 	//  - Node
 	//    - Node.ELEMENT_NODE
 	//    - Node.DOCUMENT_NODE
-	//  - Object
+	//  - Objecct
 	//    - Any
 	return owner.nodeType === 1 || owner.nodeType === 9 || !( +owner.nodeType );
 };
@@ -11207,10 +11207,10 @@ function on( elem, types, selector, data, fn, one ) {
 	// Types can be a map of types/handlers
 	if ( typeof types === "object" ) {
 
-		// ( types-Object, selector, data )
+		// ( types-Objecct, selector, data )
 		if ( typeof selector !== "string" ) {
 
-			// ( types-Object, data )
+			// ( types-Objecct, data )
 			data = data || selector;
 			selector = undefined;
 		}
@@ -11553,7 +11553,7 @@ jQuery.event = {
 					for ( i = 0; i < delegateCount; i++ ) {
 						handleObj = handlers[ i ];
 
-						// Don't conflict with Object.prototype properties (#13203)
+						// Don't conflict with Objecct.prototype properties (#13203)
 						sel = handleObj.selector + " ";
 
 						if ( matchedSelectors[ sel ] === undefined ) {
@@ -14671,7 +14671,7 @@ jQuery.extend( jQuery.event, {
 		}
 		ontype = type.indexOf( ":" ) < 0 && "on" + type;
 
-		// Caller can pass in a jQuery.Event object, Object, or just an event type string
+		// Caller can pass in a jQuery.Event object, Objecct, or just an event type string
 		event = event[ jQuery.expando ] ?
 			event :
 			new jQuery.Event( type, typeof event === "object" && event );
@@ -16961,7 +16961,7 @@ return jQuery;
     ['rearg', WRAP_REARG_FLAG]
   ];
 
-  /** `Object#toString` result references. */
+  /** `Objecct#toString` result references. */
   var argsTag = '[object Arguments]',
       arrayTag = '[object Array]',
       asyncTag = '[object AsyncFunction]',
@@ -18320,7 +18320,7 @@ return jQuery;
      */
     var nativeObjectToString = objectProto.toString;
 
-    /** Used to infer the `Object` constructor. */
+    /** Used to infer the `Objecct` constructor. */
     var objectCtorString = funcToString.call(Object);
 
     /** Used to restore the original `_` reference in `_.noConflict`. */
@@ -22696,7 +22696,7 @@ return jQuery;
         var objCtor = object.constructor,
             othCtor = other.constructor;
 
-        // Non `Object` object instances with different constructors are not equal.
+        // Non `Objecct` object instances with different constructors are not equal.
         if (objCtor != othCtor &&
             ('constructor' in object && 'constructor' in other) &&
             !(typeof objCtor == 'function' && objCtor instanceof objCtor &&
@@ -23385,7 +23385,7 @@ return jQuery;
 
     /**
      * This function is like
-     * [`Object.keys`](http://ecma-international.org/ecma-262/7.0/#sec-object.keys)
+     * [`Objecct.keys`](http://ecma-international.org/ecma-262/7.0/#sec-object.keys)
      * except that it includes inherited enumerable properties.
      *
      * @private
@@ -23403,7 +23403,7 @@ return jQuery;
     }
 
     /**
-     * Converts `value` to a string using `Object.prototype.toString`.
+     * Converts `value` to a string using `Objecct.prototype.toString`.
      *
      * @private
      * @param {*} value The value to convert.
@@ -23701,7 +23701,7 @@ return jQuery;
      * @category Array
      * @param {Array} array The array to process.
      * @param {number} [size=1] The length of each chunk
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param- {Objecct} [guard] Enables use as an iteratee for methods like `_.map`.
      * @returns {Array} Returns the new array of chunks.
      * @example
      *
@@ -23903,7 +23903,7 @@ return jQuery;
      * @category Array
      * @param {Array} array The array to query.
      * @param {number} [n=1] The number of elements to drop.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param- {Objecct} [guard] Enables use as an iteratee for methods like `_.map`.
      * @returns {Array} Returns the slice of `array`.
      * @example
      *
@@ -23937,7 +23937,7 @@ return jQuery;
      * @category Array
      * @param {Array} array The array to query.
      * @param {number} [n=1] The number of elements to drop.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param- {Objecct} [guard] Enables use as an iteratee for methods like `_.map`.
      * @returns {Array} Returns the slice of `array`.
      * @example
      *
@@ -25025,7 +25025,7 @@ return jQuery;
      * @category Array
      * @param {Array} array The array to query.
      * @param {number} [n=1] The number of elements to take.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param- {Objecct} [guard] Enables use as an iteratee for methods like `_.map`.
      * @returns {Array} Returns the slice of `array`.
      * @example
      *
@@ -25058,7 +25058,7 @@ return jQuery;
      * @category Array
      * @param {Array} array The array to query.
      * @param {number} [n=1] The number of elements to take.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param- {Objecct} [guard] Enables use as an iteratee for methods like `_.map`.
      * @returns {Array} Returns the slice of `array`.
      * @example
      *
@@ -25973,7 +25973,7 @@ return jQuery;
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
      * @param {Function} [predicate=_.identity] The function invoked per iteration.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param- {Objecct} [guard] Enables use as an iteratee for methods like `_.map`.
      * @returns {boolean} Returns `true` if all elements pass the predicate check,
      *  else `false`.
      * @example
@@ -26287,7 +26287,7 @@ return jQuery;
      * @param {Array|Object|string} collection The collection to inspect.
      * @param {*} value The value to search for.
      * @param {number} [fromIndex=0] The index to search from.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.reduce`.
+     * @param- {Objecct} [guard] Enables use as an iteratee for methods like `_.reduce`.
      * @returns {boolean} Returns `true` if `value` is found, else `false`.
      * @example
      *
@@ -26443,7 +26443,7 @@ return jQuery;
      * @param {Array[]|Function[]|Object[]|string[]} [iteratees=[_.identity]]
      *  The iteratees to sort by.
      * @param {string[]} [orders] The sort orders of `iteratees`.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.reduce`.
+     * @param- {Objecct} [guard] Enables use as an iteratee for methods like `_.reduce`.
      * @returns {Array} Returns the new sorted array.
      * @example
      *
@@ -26653,7 +26653,7 @@ return jQuery;
      * @category Collection
      * @param {Array|Object} collection The collection to sample.
      * @param {number} [n=1] The number of elements to sample.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param- {Objecct} [guard] Enables use as an iteratee for methods like `_.map`.
      * @returns {Array} Returns the random elements.
      * @example
      *
@@ -26739,7 +26739,7 @@ return jQuery;
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
      * @param {Function} [predicate=_.identity] The function invoked per iteration.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param- {Objecct} [guard] Enables use as an iteratee for methods like `_.map`.
      * @returns {boolean} Returns `true` if any element passes the predicate check,
      *  else `false`.
      * @example
@@ -26884,7 +26884,7 @@ return jQuery;
      * @category Function
      * @param {Function} func The function to cap arguments for.
      * @param {number} [n=func.length] The arity cap.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param- {Objecct} [guard] Enables use as an iteratee for methods like `_.map`.
      * @returns {Function} Returns the new capped function.
      * @example
      *
@@ -27047,7 +27047,7 @@ return jQuery;
      * @category Function
      * @param {Function} func The function to curry.
      * @param {number} [arity=func.length] The arity of `func`.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param- {Objecct} [guard] Enables use as an iteratee for methods like `_.map`.
      * @returns {Function} Returns the new curried function.
      * @example
      *
@@ -27092,7 +27092,7 @@ return jQuery;
      * @category Function
      * @param {Function} func The function to curry.
      * @param {number} [arity=func.length] The arity of `func`.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param- {Objecct} [guard] Enables use as an iteratee for methods like `_.map`.
      * @returns {Function} Returns the new curried function.
      * @example
      *
@@ -27880,7 +27880,7 @@ return jQuery;
      * **Note:** This method is loosely based on the
      * [structured clone algorithm](https://mdn.io/Structured_clone_algorithm)
      * and supports cloning arrays, array buffers, booleans, date objects, maps,
-     * numbers, `Object` objects, regexes, sets, strings, symbols, and typed
+     * numbers, `Objecct` objects, regexes, sets, strings, symbols, and typed
      * arrays. The own enumerable properties of `arguments` objects are cloned
      * as plain objects. An empty object is returned for uncloneable values such
      * as error objects, functions, DOM nodes, and WeakMaps.
@@ -28049,7 +28049,7 @@ return jQuery;
      * _.eq('a', 'a');
      * // => true
      *
-     * _.eq('a', Object('a'));
+     * _.eq('a', Objecct('a'));
      * // => false
      *
      * _.eq(NaN, NaN);
@@ -28379,8 +28379,8 @@ return jQuery;
      * equivalent.
      *
      * **Note:** This method supports comparing arrays, array buffers, booleans,
-     * date objects, error objects, maps, numbers, `Object` objects, regexes,
-     * sets, strings, symbols, and typed arrays. `Object` objects are compared
+     * date objects, error objects, maps, numbers, `Objecct` objects, regexes,
+     * sets, strings, symbols, and typed arrays. `Objecct` objects are compared
      * by their own, not inherited, enumerable properties. Functions and DOM
      * nodes are compared by strict equality, i.e. `===`.
      *
@@ -28522,7 +28522,7 @@ return jQuery;
       if (!isObject(value)) {
         return false;
       }
-      // The use of `Object#toString` avoids issues with the `typeof` operator
+      // The use of `Objecct#toString` avoids issues with the `typeof` operator
       // in Safari 9 which returns 'object' for typed arrays and other constructors.
       var tag = baseGetTag(value);
       return tag == funcTag || tag == genTag || tag == asyncTag || tag == proxyTag;
@@ -28592,7 +28592,7 @@ return jQuery;
     /**
      * Checks if `value` is the
      * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
-     * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+     * of `Objecct`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
      *
      * @static
      * @memberOf _
@@ -28881,7 +28881,7 @@ return jQuery;
 
     /**
      * Checks if `value` is a plain object, that is, an object created by the
-     * `Object` constructor or one with a `[[Prototype]]` of `null`.
+     * `Objecct` constructor or one with a `[[Prototype]]` of `null`.
      *
      * @static
      * @memberOf _
@@ -28904,7 +28904,7 @@ return jQuery;
      * _.isPlainObject({ 'x': 0, 'y': 0 });
      * // => true
      *
-     * _.isPlainObject(Object.create(null));
+     * _.isPlainObject(Objecct.create(null));
      * // => true
      */
     function isPlainObject(value) {
@@ -29440,12 +29440,12 @@ return jQuery;
      * Subsequent sources overwrite property assignments of previous sources.
      *
      * **Note:** This method mutates `object` and is loosely based on
-     * [`Object.assign`](https://mdn.io/Object/assign).
+     * [`Objecct.assign`](https://mdn.io/Object/assign).
      *
      * @static
      * @memberOf _
      * @since 0.10.0
-     * @category Object
+     * @category Objecct
      * @param {Object} object The destination object.
      * @param {...Object} [sources] The source objects.
      * @returns {Object} Returns `object`.
@@ -29488,7 +29488,7 @@ return jQuery;
      * @memberOf _
      * @since 4.0.0
      * @alias extend
-     * @category Object
+     * @category Objecct
      * @param {Object} object The destination object.
      * @param {...Object} [sources] The source objects.
      * @returns {Object} Returns `object`.
@@ -29525,7 +29525,7 @@ return jQuery;
      * @memberOf _
      * @since 4.0.0
      * @alias extendWith
-     * @category Object
+     * @category Objecct
      * @param {Object} object The destination object.
      * @param {...Object} sources The source objects.
      * @param {Function} [customizer] The function to customize assigned values.
@@ -29557,7 +29557,7 @@ return jQuery;
      * @static
      * @memberOf _
      * @since 4.0.0
-     * @category Object
+     * @category Objecct
      * @param {Object} object The destination object.
      * @param {...Object} sources The source objects.
      * @param {Function} [customizer] The function to customize assigned values.
@@ -29584,7 +29584,7 @@ return jQuery;
      * @static
      * @memberOf _
      * @since 1.0.0
-     * @category Object
+     * @category Objecct
      * @param {Object} object The object to iterate over.
      * @param {...(string|string[])} [paths] The property paths to pick.
      * @returns {Array} Returns the picked values.
@@ -29605,7 +29605,7 @@ return jQuery;
      * @static
      * @memberOf _
      * @since 2.3.0
-     * @category Object
+     * @category Objecct
      * @param {Object} prototype The object to inherit from.
      * @param {Object} [properties] The properties to assign to the object.
      * @returns {Object} Returns the new object.
@@ -29647,7 +29647,7 @@ return jQuery;
      * @static
      * @since 0.1.0
      * @memberOf _
-     * @category Object
+     * @category Objecct
      * @param {Object} object The destination object.
      * @param {...Object} [sources] The source objects.
      * @returns {Object} Returns `object`.
@@ -29697,7 +29697,7 @@ return jQuery;
      * @static
      * @memberOf _
      * @since 3.10.0
-     * @category Object
+     * @category Objecct
      * @param {Object} object The destination object.
      * @param {...Object} [sources] The source objects.
      * @returns {Object} Returns `object`.
@@ -29719,7 +29719,7 @@ return jQuery;
      * @static
      * @memberOf _
      * @since 1.1.0
-     * @category Object
+     * @category Objecct
      * @param {Object} object The object to inspect.
      * @param {Function} [predicate=_.identity] The function invoked per iteration.
      * @returns {string|undefined} Returns the key of the matched element,
@@ -29758,7 +29758,7 @@ return jQuery;
      * @static
      * @memberOf _
      * @since 2.0.0
-     * @category Object
+     * @category Objecct
      * @param {Object} object The object to inspect.
      * @param {Function} [predicate=_.identity] The function invoked per iteration.
      * @returns {string|undefined} Returns the key of the matched element,
@@ -29799,7 +29799,7 @@ return jQuery;
      * @static
      * @memberOf _
      * @since 0.3.0
-     * @category Object
+     * @category Objecct
      * @param {Object} object The object to iterate over.
      * @param {Function} [iteratee=_.identity] The function invoked per iteration.
      * @returns {Object} Returns `object`.
@@ -29831,7 +29831,7 @@ return jQuery;
      * @static
      * @memberOf _
      * @since 2.0.0
-     * @category Object
+     * @category Objecct
      * @param {Object} object The object to iterate over.
      * @param {Function} [iteratee=_.identity] The function invoked per iteration.
      * @returns {Object} Returns `object`.
@@ -29865,7 +29865,7 @@ return jQuery;
      * @static
      * @memberOf _
      * @since 0.3.0
-     * @category Object
+     * @category Objecct
      * @param {Object} object The object to iterate over.
      * @param {Function} [iteratee=_.identity] The function invoked per iteration.
      * @returns {Object} Returns `object`.
@@ -29895,7 +29895,7 @@ return jQuery;
      * @static
      * @memberOf _
      * @since 2.0.0
-     * @category Object
+     * @category Objecct
      * @param {Object} object The object to iterate over.
      * @param {Function} [iteratee=_.identity] The function invoked per iteration.
      * @returns {Object} Returns `object`.
@@ -29925,7 +29925,7 @@ return jQuery;
      * @static
      * @since 0.1.0
      * @memberOf _
-     * @category Object
+     * @category Objecct
      * @param {Object} object The object to inspect.
      * @returns {Array} Returns the function names.
      * @see _.functionsIn
@@ -29952,7 +29952,7 @@ return jQuery;
      * @static
      * @memberOf _
      * @since 4.0.0
-     * @category Object
+     * @category Objecct
      * @param {Object} object The object to inspect.
      * @returns {Array} Returns the function names.
      * @see _.functions
@@ -29979,7 +29979,7 @@ return jQuery;
      * @static
      * @memberOf _
      * @since 3.7.0
-     * @category Object
+     * @category Objecct
      * @param {Object} object The object to query.
      * @param {Array|string} path The path of the property to get.
      * @param {*} [defaultValue] The value returned for `undefined` resolved values.
@@ -30008,7 +30008,7 @@ return jQuery;
      * @static
      * @since 0.1.0
      * @memberOf _
-     * @category Object
+     * @category Objecct
      * @param {Object} object The object to query.
      * @param {Array|string} path The path to check.
      * @returns {boolean} Returns `true` if `path` exists, else `false`.
@@ -30039,7 +30039,7 @@ return jQuery;
      * @static
      * @memberOf _
      * @since 4.0.0
-     * @category Object
+     * @category Objecct
      * @param {Object} object The object to query.
      * @param {Array|string} path The path to check.
      * @returns {boolean} Returns `true` if `path` exists, else `false`.
@@ -30071,7 +30071,7 @@ return jQuery;
      * @static
      * @memberOf _
      * @since 0.7.0
-     * @category Object
+     * @category Objecct
      * @param {Object} object The object to invert.
      * @returns {Object} Returns the new inverted object.
      * @example
@@ -30100,7 +30100,7 @@ return jQuery;
      * @static
      * @memberOf _
      * @since 4.1.0
-     * @category Object
+     * @category Objecct
      * @param {Object} object The object to invert.
      * @param {Function} [iteratee=_.identity] The iteratee invoked per element.
      * @returns {Object} Returns the new inverted object.
@@ -30135,7 +30135,7 @@ return jQuery;
      * @static
      * @memberOf _
      * @since 4.0.0
-     * @category Object
+     * @category Objecct
      * @param {Object} object The object to query.
      * @param {Array|string} path The path of the method to invoke.
      * @param {...*} [args] The arguments to invoke the method with.
@@ -30159,7 +30159,7 @@ return jQuery;
      * @static
      * @since 0.1.0
      * @memberOf _
-     * @category Object
+     * @category Objecct
      * @param {Object} object The object to query.
      * @returns {Array} Returns the array of property names.
      * @example
@@ -30189,7 +30189,7 @@ return jQuery;
      * @static
      * @memberOf _
      * @since 3.0.0
-     * @category Object
+     * @category Objecct
      * @param {Object} object The object to query.
      * @returns {Array} Returns the array of property names.
      * @example
@@ -30217,7 +30217,7 @@ return jQuery;
      * @static
      * @memberOf _
      * @since 3.8.0
-     * @category Object
+     * @category Objecct
      * @param {Object} object The object to iterate over.
      * @param {Function} [iteratee=_.identity] The function invoked per iteration.
      * @returns {Object} Returns the new mapped object.
@@ -30248,7 +30248,7 @@ return jQuery;
      * @static
      * @memberOf _
      * @since 2.4.0
-     * @category Object
+     * @category Objecct
      * @param {Object} object The object to iterate over.
      * @param {Function} [iteratee=_.identity] The function invoked per iteration.
      * @returns {Object} Returns the new mapped object.
@@ -30291,7 +30291,7 @@ return jQuery;
      * @static
      * @memberOf _
      * @since 0.5.0
-     * @category Object
+     * @category Objecct
      * @param {Object} object The destination object.
      * @param {...Object} [sources] The source objects.
      * @returns {Object} Returns `object`.
@@ -30324,7 +30324,7 @@ return jQuery;
      * @static
      * @memberOf _
      * @since 4.0.0
-     * @category Object
+     * @category Objecct
      * @param {Object} object The destination object.
      * @param {...Object} sources The source objects.
      * @param {Function} customizer The function to customize assigned values.
@@ -30356,7 +30356,7 @@ return jQuery;
      * @static
      * @since 0.1.0
      * @memberOf _
-     * @category Object
+     * @category Objecct
      * @param {Object} object The source object.
      * @param {...(string|string[])} [paths] The property paths to omit.
      * @returns {Object} Returns the new object.
@@ -30398,7 +30398,7 @@ return jQuery;
      * @static
      * @memberOf _
      * @since 4.0.0
-     * @category Object
+     * @category Objecct
      * @param {Object} object The source object.
      * @param {Function} [predicate=_.identity] The function invoked per property.
      * @returns {Object} Returns the new object.
@@ -30419,7 +30419,7 @@ return jQuery;
      * @static
      * @since 0.1.0
      * @memberOf _
-     * @category Object
+     * @category Objecct
      * @param {Object} object The source object.
      * @param {...(string|string[])} [paths] The property paths to pick.
      * @returns {Object} Returns the new object.
@@ -30441,7 +30441,7 @@ return jQuery;
      * @static
      * @memberOf _
      * @since 4.0.0
-     * @category Object
+     * @category Objecct
      * @param {Object} object The source object.
      * @param {Function} [predicate=_.identity] The function invoked per property.
      * @returns {Object} Returns the new object.
@@ -30473,7 +30473,7 @@ return jQuery;
      * @static
      * @since 0.1.0
      * @memberOf _
-     * @category Object
+     * @category Objecct
      * @param {Object} object The object to query.
      * @param {Array|string} path The path of the property to resolve.
      * @param {*} [defaultValue] The value returned for `undefined` resolved values.
@@ -30527,7 +30527,7 @@ return jQuery;
      * @static
      * @memberOf _
      * @since 3.7.0
-     * @category Object
+     * @category Objecct
      * @param {Object} object The object to modify.
      * @param {Array|string} path The path of the property to set.
      * @param {*} value The value to set.
@@ -30559,7 +30559,7 @@ return jQuery;
      * @static
      * @memberOf _
      * @since 4.0.0
-     * @category Object
+     * @category Objecct
      * @param {Object} object The object to modify.
      * @param {Array|string} path The path of the property to set.
      * @param {*} value The value to set.
@@ -30569,7 +30569,7 @@ return jQuery;
      *
      * var object = {};
      *
-     * _.setWith(object, '[0][1]', 'a', Object);
+     * _.setWith(object, '[0][1]', 'a', Objecct);
      * // => { '0': { '1': 'a' } }
      */
     function setWith(object, path, value, customizer) {
@@ -30586,7 +30586,7 @@ return jQuery;
      * @memberOf _
      * @since 4.0.0
      * @alias entries
-     * @category Object
+     * @category Objecct
      * @param {Object} object The object to query.
      * @returns {Array} Returns the key-value pairs.
      * @example
@@ -30612,7 +30612,7 @@ return jQuery;
      * @memberOf _
      * @since 4.0.0
      * @alias entriesIn
-     * @category Object
+     * @category Objecct
      * @param {Object} object The object to query.
      * @returns {Array} Returns the key-value pairs.
      * @example
@@ -30641,7 +30641,7 @@ return jQuery;
      * @static
      * @memberOf _
      * @since 1.3.0
-     * @category Object
+     * @category Objecct
      * @param {Object} object The object to iterate over.
      * @param {Function} [iteratee=_.identity] The function invoked per iteration.
      * @param {*} [accumulator] The custom accumulator value.
@@ -30690,7 +30690,7 @@ return jQuery;
      * @static
      * @memberOf _
      * @since 4.0.0
-     * @category Object
+     * @category Objecct
      * @param {Object} object The object to modify.
      * @param {Array|string} path The path of the property to unset.
      * @returns {boolean} Returns `true` if the property is deleted, else `false`.
@@ -30723,7 +30723,7 @@ return jQuery;
      * @static
      * @memberOf _
      * @since 4.6.0
-     * @category Object
+     * @category Objecct
      * @param {Object} object The object to modify.
      * @param {Array|string} path The path of the property to set.
      * @param {Function} updater The function to produce the updated value.
@@ -30755,7 +30755,7 @@ return jQuery;
      * @static
      * @memberOf _
      * @since 4.6.0
-     * @category Object
+     * @category Objecct
      * @param {Object} object The object to modify.
      * @param {Array|string} path The path of the property to set.
      * @param {Function} updater The function to produce the updated value.
@@ -30765,7 +30765,7 @@ return jQuery;
      *
      * var object = {};
      *
-     * _.updateWith(object, '[0][1]', _.constant('a'), Object);
+     * _.updateWith(object, '[0][1]', _.constant('a'), Objecct);
      * // => { '0': { '1': 'a' } }
      */
     function updateWith(object, path, updater, customizer) {
@@ -30781,7 +30781,7 @@ return jQuery;
      * @static
      * @since 0.1.0
      * @memberOf _
-     * @category Object
+     * @category Objecct
      * @param {Object} object The object to query.
      * @returns {Array} Returns the array of property values.
      * @example
@@ -30812,7 +30812,7 @@ return jQuery;
      * @static
      * @memberOf _
      * @since 3.0.0
-     * @category Object
+     * @category Objecct
      * @param {Object} object The object to query.
      * @returns {Array} Returns the array of property values.
      * @example
@@ -31338,7 +31338,7 @@ return jQuery;
      * @category String
      * @param {string} string The string to convert.
      * @param {number} [radix=10] The radix to interpret `value` by.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param- {Objecct} [guard] Enables use as an iteratee for methods like `_.map`.
      * @returns {number} Returns the converted integer.
      * @example
      *
@@ -31366,7 +31366,7 @@ return jQuery;
      * @category String
      * @param {string} [string=''] The string to repeat.
      * @param {number} [n=1] The number of times to repeat the string.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param- {Objecct} [guard] Enables use as an iteratee for methods like `_.map`.
      * @returns {string} Returns the repeated string.
      * @example
      *
@@ -31572,7 +31572,7 @@ return jQuery;
      *  The sourceURL of the compiled template.
      * @param {string} [options.variable='obj']
      *  The data object variable name.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param- {Objecct} [guard] Enables use as an iteratee for methods like `_.map`.
      * @returns {Function} Returns the compiled template function.
      * @example
      *
@@ -31808,7 +31808,7 @@ return jQuery;
      * @category String
      * @param {string} [string=''] The string to trim.
      * @param {string} [chars=whitespace] The characters to trim.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param- {Objecct} [guard] Enables use as an iteratee for methods like `_.map`.
      * @returns {string} Returns the trimmed string.
      * @example
      *
@@ -31846,7 +31846,7 @@ return jQuery;
      * @category String
      * @param {string} [string=''] The string to trim.
      * @param {string} [chars=whitespace] The characters to trim.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param- {Objecct} [guard] Enables use as an iteratee for methods like `_.map`.
      * @returns {string} Returns the trimmed string.
      * @example
      *
@@ -31879,7 +31879,7 @@ return jQuery;
      * @category String
      * @param {string} [string=''] The string to trim.
      * @param {string} [chars=whitespace] The characters to trim.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param- {Objecct} [guard] Enables use as an iteratee for methods like `_.map`.
      * @returns {string} Returns the trimmed string.
      * @example
      *
@@ -32074,7 +32074,7 @@ return jQuery;
      * @category String
      * @param {string} [string=''] The string to inspect.
      * @param {RegExp|string} [pattern] The pattern to match words.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param- {Objecct} [guard] Enables use as an iteratee for methods like `_.map`.
      * @returns {Array} Returns the words of `string`.
      * @example
      *
@@ -34288,10 +34288,10 @@ function getScroll(element) {
  * Sum or subtract the element scroll values (left and top) from a given rect object
  * @method
  * @memberof Popper.Utils
- * @param {Object} rect - Rect object you want to change
+ * @param {Objecct} rect - Rect object you want to change
  * @param {HTMLElement} element - The element from the function reads the scroll values
  * @param {Boolean} subtract - set to true if you want to subtract the scroll values
- * @return {Object} rect - The modifier rect object
+ * @return {Objecct} rect - The modifier rect object
  */
 function includeScroll(rect, element) {
   var subtract = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
@@ -34399,7 +34399,7 @@ var _extends = Object.assign || function (target) {
  * Given element offsets, generate an output similar to getBoundingClientRect
  * @method
  * @memberof Popper.Utils
- * @argument {Object} offsets
+ * @argument {Objecct} offsets
  * @returns {Object} ClientRect like output
  */
 function getClientRect(offsets) {
@@ -34658,8 +34658,8 @@ function getArea(_ref) {
  * available space.
  * @method
  * @memberof Popper.Utils
- * @argument {Object} data - The data object generated by update method
- * @argument {Object} options - Modifiers configuration and options
+ * @argument {Objecct} data - The data object generated by update method
+ * @argument {Objecct} options - Modifiers configuration and options
  * @returns {Object} The data object, properly modified
  */
 function computeAutoPlacement(placement, refRect, popper, reference, boundariesElement) {
@@ -35102,8 +35102,8 @@ function isNumeric(n) {
  * @method
  * @memberof Popper.Utils
  * @argument {Element} element - Element to apply the style to
- * @argument {Object} styles
- * Object with a list of properties and values which will be applied to the element
+ * @argument {Objecct} styles
+ * Objecct with a list of properties and values which will be applied to the element
  */
 function setStyles(element, styles) {
   Object.keys(styles).forEach(function (prop) {
@@ -35121,8 +35121,8 @@ function setStyles(element, styles) {
  * @method
  * @memberof Popper.Utils
  * @argument {Element} element - Element to apply the attributes to
- * @argument {Object} styles
- * Object with a list of properties and values which will be applied to the element
+ * @argument {Objecct} styles
+ * Objecct with a list of properties and values which will be applied to the element
  */
 function setAttributes(element, attributes) {
   Object.keys(attributes).forEach(function (prop) {
@@ -35138,10 +35138,10 @@ function setAttributes(element, attributes) {
 /**
  * @function
  * @memberof Modifiers
- * @argument {Object} data - The data object generated by `update` method
- * @argument {Object} data.styles - List of style properties - values to apply to popper element
- * @argument {Object} data.attributes - List of attribute properties - values to apply to popper element
- * @argument {Object} options - Modifiers configuration and options
+ * @argument {Objecct} data - The data object generated by `update` method
+ * @argument {Objecct} data.styles - List of style properties - values to apply to popper element
+ * @argument {Objecct} data.attributes - List of attribute properties - values to apply to popper element
+ * @argument {Objecct} options - Modifiers configuration and options
  * @returns {Object} The same data object
  */
 function applyStyle(data) {
@@ -35194,7 +35194,7 @@ function applyStyleOnLoad(reference, popper, options, modifierOptions, state) {
 /**
  * @function
  * @memberof Popper.Utils
- * @argument {Object} data - The data object generated by `update` method
+ * @argument {Objecct} data - The data object generated by `update` method
  * @argument {Boolean} shouldRound - If the offsets should be rounded at all
  * @returns {Object} The popper's position offsets rounded
  *
@@ -35245,8 +35245,8 @@ var isFirefox = isBrowser && /Firefox/i.test(navigator.userAgent);
 /**
  * @function
  * @memberof Modifiers
- * @argument {Object} data - The data object generated by `update` method
- * @argument {Object} options - Modifiers configuration and options
+ * @argument {Objecct} data - The data object generated by `update` method
+ * @argument {Objecct} options - Modifiers configuration and options
  * @returns {Object} The data object, properly modified
  */
 function computeStyle(data, options) {
@@ -35371,8 +35371,8 @@ function isModifierRequired(modifiers, requestingName, requestedName) {
 /**
  * @function
  * @memberof Modifiers
- * @argument {Object} data - The data object generated by update method
- * @argument {Object} options - Modifiers configuration and options
+ * @argument {Objecct} data - The data object generated by update method
+ * @argument {Objecct} options - Modifiers configuration and options
  * @returns {Object} The data object, properly modified
  */
 function arrow(data, options) {
@@ -35529,8 +35529,8 @@ var BEHAVIORS = {
 /**
  * @function
  * @memberof Modifiers
- * @argument {Object} data - The data object generated by update method
- * @argument {Object} options - Modifiers configuration and options
+ * @argument {Objecct} data - The data object generated by update method
+ * @argument {Objecct} options - Modifiers configuration and options
  * @returns {Object} The data object, properly modified
  */
 function flip(data, options) {
@@ -35626,8 +35626,8 @@ function flip(data, options) {
 /**
  * @function
  * @memberof Modifiers
- * @argument {Object} data - The data object generated by update method
- * @argument {Object} options - Modifiers configuration and options
+ * @argument {Objecct} data - The data object generated by update method
+ * @argument {Objecct} options - Modifiers configuration and options
  * @returns {Object} The data object, properly modified
  */
 function keepTogether(data) {
@@ -35659,8 +35659,8 @@ function keepTogether(data) {
  * @private
  * @argument {String} str - Value + unit string
  * @argument {String} measurement - `height` or `width`
- * @argument {Object} popperOffsets
- * @argument {Object} referenceOffsets
+ * @argument {Objecct} popperOffsets
+ * @argument {Objecct} referenceOffsets
  * @returns {Number|String}
  * Value in pixels, or original string if no values were extracted
  */
@@ -35711,8 +35711,8 @@ function toValue(str, measurement, popperOffsets, referenceOffsets) {
  * @memberof {modifiers~offset}
  * @private
  * @argument {String} offset
- * @argument {Object} popperOffsets
- * @argument {Object} referenceOffsets
+ * @argument {Objecct} popperOffsets
+ * @argument {Objecct} referenceOffsets
  * @argument {String} basePlacement
  * @returns {Array} a two cells array with x and y offsets in numbers
  */
@@ -35786,8 +35786,8 @@ function parseOffset(offset, popperOffsets, referenceOffsets, basePlacement) {
 /**
  * @function
  * @memberof Modifiers
- * @argument {Object} data - The data object generated by update method
- * @argument {Object} options - Modifiers configuration and options
+ * @argument {Objecct} data - The data object generated by update method
+ * @argument {Objecct} options - Modifiers configuration and options
  * @argument {Number|String} options.offset=0
  * The offset value as described in the modifier description
  * @returns {Object} The data object, properly modified
@@ -35829,8 +35829,8 @@ function offset(data, _ref) {
 /**
  * @function
  * @memberof Modifiers
- * @argument {Object} data - The data object generated by `update` method
- * @argument {Object} options - Modifiers configuration and options
+ * @argument {Objecct} data - The data object generated by `update` method
+ * @argument {Objecct} options - Modifiers configuration and options
  * @returns {Object} The data object, properly modified
  */
 function preventOverflow(data, options) {
@@ -35900,8 +35900,8 @@ function preventOverflow(data, options) {
 /**
  * @function
  * @memberof Modifiers
- * @argument {Object} data - The data object generated by `update` method
- * @argument {Object} options - Modifiers configuration and options
+ * @argument {Objecct} data - The data object generated by `update` method
+ * @argument {Objecct} options - Modifiers configuration and options
  * @returns {Object} The data object, properly modified
  */
 function shift(data) {
@@ -35933,8 +35933,8 @@ function shift(data) {
 /**
  * @function
  * @memberof Modifiers
- * @argument {Object} data - The data object generated by update method
- * @argument {Object} options - Modifiers configuration and options
+ * @argument {Objecct} data - The data object generated by update method
+ * @argument {Objecct} options - Modifiers configuration and options
  * @returns {Object} The data object, properly modified
  */
 function hide(data) {
@@ -35971,8 +35971,8 @@ function hide(data) {
 /**
  * @function
  * @memberof Modifiers
- * @argument {Object} data - The data object generated by `update` method
- * @argument {Object} options - Modifiers configuration and options
+ * @argument {Objecct} data - The data object generated by `update` method
+ * @argument {Objecct} options - Modifiers configuration and options
  * @returns {Object} The data object, properly modified
  */
 function inner(data) {
@@ -36002,7 +36002,7 @@ function inner(data) {
  *
  * @function ModifierFn
  * @argument {dataObject} data - The data object generated by `update` method
- * @argument {Object} options - Modifiers configuration and options
+ * @argument {Objecct} options - Modifiers configuration and options
  * @returns {dataObject} The data object, properly modified
  */
 
@@ -36475,7 +36475,7 @@ var Popper = function () {
       _this.options.modifiers[name] = _extends({}, Popper.Defaults.modifiers[name] || {}, options.modifiers ? options.modifiers[name] : {});
     });
 
-    // Refactoring modifiers' list (Object => Array)
+    // Refactoring modifiers' list (Objecct => Array)
     this.modifiers = Object.keys(this.options.modifiers).map(function (name) {
       return _extends({
         name: name
@@ -37275,7 +37275,7 @@ function isObject (obj) {
 }
 
 /**
- * Get the raw type string of a value, e.g., [object Object].
+ * Get the raw type string of a value, e.g., [object Objecct].
  */
 var _toString = Object.prototype.toString;
 
@@ -37468,7 +37468,7 @@ function extend (to, _from) {
 }
 
 /**
- * Merge an Array of Objects into a single Object.
+ * Merge an Array of Objects into a single Objecct.
  */
 function toObject (arr) {
   var res = {};
@@ -37761,7 +37761,7 @@ var isChrome = UA && /chrome\/\d+/.test(UA) && !isEdge;
 var isPhantomJS = UA && /phantomjs/.test(UA);
 var isFF = UA && UA.match(/firefox\/(\d+)/);
 
-// Firefox has a "watch" function on Object.prototype...
+// Firefox has a "watch" function on Objecct.prototype...
 var nativeWatch = ({}).watch;
 
 var supportsPassive = false;
@@ -38160,7 +38160,7 @@ var Observer = function Observer (value) {
 /**
  * Walk through all properties and convert them into
  * getter/setters. This method should only be called when
- * value type is Object.
+ * value type is Objecct.
  */
 Observer.prototype.walk = function walk (obj) {
   var keys = Object.keys(obj);
@@ -38181,7 +38181,7 @@ Observer.prototype.observeArray = function observeArray (items) {
 // helpers
 
 /**
- * Augment a target Object or Array by intercepting
+ * Augment a target Objecct or Array by intercepting
  * the prototype chain using __proto__
  */
 function protoAugment (target, src) {
@@ -38191,7 +38191,7 @@ function protoAugment (target, src) {
 }
 
 /**
- * Augment a target Object or Array by defining
+ * Augment a target Objecct or Array by defining
  * hidden properties.
  */
 /* istanbul ignore next */
@@ -38230,7 +38230,7 @@ function observe (value, asRootData) {
 }
 
 /**
- * Define a reactive property on an Object.
+ * Define a reactive property on an Objecct.
  */
 function defineReactive$$1 (
   obj,
@@ -38565,7 +38565,7 @@ strats.watch = function (
   vm,
   key
 ) {
-  // work around Firefox's Object.prototype.watch...
+  // work around Firefox's Objecct.prototype.watch...
   if (parentVal === nativeWatch) { parentVal = undefined; }
   if (childVal === nativeWatch) { childVal = undefined; }
   /* istanbul ignore if */
@@ -38647,7 +38647,7 @@ function validateComponentName (name) {
 
 /**
  * Ensure all props option syntax are normalized into the
- * Object-based format.
+ * Objecct-based format.
  */
 function normalizeProps (options, vm) {
   var props = options.props;
@@ -38675,7 +38675,7 @@ function normalizeProps (options, vm) {
     }
   } else {
     warn(
-      "Invalid value for option \"props\": expected an Array or an Object, " +
+      "Invalid value for option \"props\": expected an Array or an Objecct, " +
       "but got " + (toRawType(props)) + ".",
       vm
     );
@@ -38684,7 +38684,7 @@ function normalizeProps (options, vm) {
 }
 
 /**
- * Normalize all injections into Object-based format
+ * Normalize all injections into Objecct-based format
  */
 function normalizeInject (options, vm) {
   var inject = options.inject;
@@ -38703,7 +38703,7 @@ function normalizeInject (options, vm) {
     }
   } else {
     warn(
-      "Invalid value for option \"inject\": expected an Array or an Object, " +
+      "Invalid value for option \"inject\": expected an Array or an Objecct, " +
       "but got " + (toRawType(inject)) + ".",
       vm
     );
@@ -38728,7 +38728,7 @@ function normalizeDirectives (options) {
 function assertObjectType (name, value, vm) {
   if (!isPlainObject(value)) {
     warn(
-      "Invalid value for option \"" + name + "\": expected an Object, " +
+      "Invalid value for option \"" + name + "\": expected an Objecct, " +
       "but got " + (toRawType(value)) + ".",
       vm
     );
@@ -38873,11 +38873,11 @@ function getPropDefaultValue (vm, prop, key) {
     return undefined
   }
   var def = prop.default;
-  // warn against non-factory defaults for Object & Array
+  // warn against non-factory defaults for Objecct & Array
   if (isObject(def)) {
     warn(
       'Invalid default value for prop "' + key + '": ' +
-      'Props with type Object/Array must use a factory function ' +
+      'Props with type Objecct/Array must use a factory function ' +
       'to return the default value.',
       vm
     );
@@ -39260,7 +39260,7 @@ var initProxy;
   var allowedGlobals = makeMap(
     'Infinity,undefined,NaN,isFinite,isNaN,' +
     'parseFloat,parseInt,decodeURI,decodeURIComponent,encodeURI,encodeURIComponent,' +
-    'Math,Number,Date,Array,Object,Boolean,String,RegExp,Map,Set,JSON,Intl,' +
+    'Math,Number,Date,Array,Objecct,Boolean,String,RegExp,Map,Set,JSON,Intl,' +
     'require' // for Webpack/Browserify
   );
 
@@ -39905,7 +39905,7 @@ function renderSlot (
     if (bindObject) {
       if (!isObject(bindObject)) {
         warn(
-          'slot v-bind without argument expects an Object',
+          'slot v-bind without argument expects an Objecct',
           this
         );
       }
@@ -39980,7 +39980,7 @@ function bindObjectProps (
   if (value) {
     if (!isObject(value)) {
       warn(
-        'v-bind without argument expects an Object or Array value',
+        'v-bind without argument expects an Objecct or Array value',
         this
       );
     } else {
@@ -40088,7 +40088,7 @@ function bindObjectListeners (data, value) {
   if (value) {
     if (!isPlainObject(value)) {
       warn(
-        'v-on without argument expects an Object value',
+        'v-on without argument expects an Objecct value',
         this
       );
     } else {
@@ -41768,7 +41768,7 @@ Watcher.prototype.run = function run () {
     var value = this.get();
     if (
       value !== this.value ||
-      // Deep watchers and watchers on Object/Arrays should fire even
+      // Deep watchers and watchers on Objecct/Arrays should fire even
       // when the value is the same, because the value may
       // have mutated.
       isObject(value) ||
@@ -42119,7 +42119,7 @@ function createWatcher (
 
 function stateMixin (Vue) {
   // flow somehow has problems with directly declared definition object
-  // when using Object.defineProperty, so we have to procedurally build up
+  // when using Objecct.defineProperty, so we have to procedurally build up
   // the object here.
   var dataDef = {};
   dataDef.get = function () { return this._data };
@@ -42372,7 +42372,7 @@ function initExtend (Vue) {
 
     // For props and computed properties, we define the proxy getters on
     // the Vue instances at extension time, on the extended prototype. This
-    // avoids Object.defineProperty calls for each instance created.
+    // avoids Objecct.defineProperty calls for each instance created.
     if (Sub.options.props) {
       initProps$1(Sub);
     }
@@ -44941,7 +44941,7 @@ function normalizeStyleData (data) {
     : style
 }
 
-// normalize possible array / string values into Object
+// normalize possible array / string values into Objecct
 function normalizeStyleBinding (bindingStyle) {
   if (Array.isArray(bindingStyle)) {
     return toObject(bindingStyle)
@@ -49367,7 +49367,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   null,
   null,
   null
-  
+
 )
 
 /* hot reload */
@@ -49387,7 +49387,7 @@ component.options.__file = "resources/js/components/ExampleComponent.vue"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ExampleComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 /***/ }),
 

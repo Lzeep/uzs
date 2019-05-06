@@ -19,21 +19,27 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
-
 //Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', function(){
     return view('welcome');
 });
 
-Route::resource('/tObject', 'TObjectsController');
+Route::get('/app', function (){
+    return view('appmap');
+});
 
+Route::resource('/tObject', 'TobjectController')->only([
+    'index', 'create', 'store',
+]);
 
-Route::get('/search', 'TObjectsController@search');
+Route::get('/search', 'TobjectController@search');
 
 Route::get('/getemployees', 'EmployeeController@getEmployees')->name('datatables.getemployees');
 Route::resource('employee', 'EmployeeController');
+Route::get('/getobject', 'TobjectController@getObjects')->name('datatables.getObjects');
+Route::resource('object', 'TobjectController');
+
 
 //Route::get('/tObject/{tObject}', 'TObjectsController@show')->name('show');
 //Route::get('/tObject/{tObject}/edit', 'TObjectsController@edit')->name('edit');
