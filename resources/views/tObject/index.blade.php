@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+    <script src="https://yandex.st/jquery/2.2.3/jquery.min.js" type="text/javascript"></script>
+
+    <script src="{{ asset('js/object_list.js') }}"></script>
+
+    <script src="{{ asset('js/groups.js') }}"></script>
     <div class="container-fluid">
         <div class="row">
             <div class="row justify-content-xl-center">
@@ -57,7 +62,9 @@
         }
     </style>
 @endpush
+
 @push('scripts')
+
     <script>
         $(function() {
             $('#object-table').DataTable({
@@ -106,7 +113,9 @@
             } );
         } );
     </script>
+
 @endpush
+
 
 
 {{--@extends('layouts.app')--}}

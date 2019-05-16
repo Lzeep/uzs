@@ -6,8 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class StatLand extends Model
 {
-    public function TObject()
+//    public function TObject()
+//    {
+//        return $this->hasMany('App\TObject');
+//    }
+
+    public function subject()
     {
-        return $this->hasMany('App\TObject');
+        return $this->hasMany('App\Subject');
     }
 }

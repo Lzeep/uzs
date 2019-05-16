@@ -44,6 +44,7 @@
     -->
     <script src="https://api-maps.yandex.ru/2.1/?apikey=a2435f91-837f-4a88-87c0-7ac7813eb317&lang=ru_RU" type="text/javascript"></script>
     <script src="{{ asset("js/mapsBishkek.js") }}"></script>
+    <script src="https://yandex.st/jquery/2.2.3/jquery.min.js" type="text/javascript"></script>
 
     <style>
         html, body, #map {

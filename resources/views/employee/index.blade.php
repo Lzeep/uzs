@@ -14,7 +14,7 @@
                         <th>Телефон</th>
                         <th>Должность</th>
                         <th>Район</th>
-                        <th>Дата создания</th>
+
                     </tr>
                     </thead>
 
@@ -26,7 +26,7 @@
                         <th>Телефон</th>
                         <th></th>
                         <th></th>
-                        <th>Дата создания</th>
+
                     </tr>
                     </tfoot>
                 </table>
@@ -56,7 +56,7 @@
                     { data: 'Phone', name: 'Phone' },
                     { data: 'position', name: 'position.name' },
                     { data: 'district_id', name: 'district_id' },
-                    { data: 'created_at', name: 'created_at' },
+
                 ]
             });
         });
@@ -85,5 +85,21 @@
                 } );
             } );
         } );
+
+        // $('#users-table').DataTable({
+        //     processing: true,
+        //     serverSide: true,
+        //     ajax: 'https://datatables.yajrabox.com/eloquent/add-edit-remove-column-data',
+        //     columns: [
+        //         { data: 'id', name: 'id' },
+        //         { data: 'Full_name', name: 'Full_name' },
+        //         { data: 'Address', name: 'Address' },
+        //         { data: 'Phone', name: 'Phone' },
+        //         { data: 'position', name: 'position.name' },
+        //         { data: 'district_id', name: 'district_id' },
+        //         { data: 'created_at', name: 'created_at' },
+        //         {data: 'action', name: 'action', orderable: false, searchable: false}
+        //     ]
+        // });
     </script>
 @endpush

@@ -87,8 +87,11 @@ class TobjectController extends Controller
      */
     public function show(Tobject $tobject)
     {
-        //
+        return view('tObject.show', [
+            'tobject'=>$tobject,
+        ]);
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -98,7 +101,9 @@ class TobjectController extends Controller
      */
     public function edit(Tobject $tobject)
     {
-        //
+        return view('tObject.edit',[
+            'tobjects'=>$tobject,
+        ]);
     }
 
     /**
@@ -110,7 +115,8 @@ class TobjectController extends Controller
      */
     public function update(Request $request, Tobject $tobject)
     {
-        //
+        $tobject->update($request->all());
+        return redirect(route('tObject.index'));
     }
 
     /**
@@ -121,6 +127,6 @@ class TobjectController extends Controller
      */
     public function destroy(Tobject $tobject)
     {
-        //
+
     }
 }

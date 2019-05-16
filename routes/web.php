@@ -25,6 +25,10 @@ Route::get('/', function(){
     return view('welcome');
 });
 
+Route::get('/home', function(){
+    return view('home');
+});
+
 Route::get('/app', function (){
     return view('appmap');
 });
@@ -33,13 +37,33 @@ Route::resource('/tObject', 'TobjectController')->only([
     'index', 'create', 'store',
 ]);
 
+
+
 Route::get('/search', 'TobjectController@search');
 
 Route::get('/getemployees', 'EmployeeController@getEmployees')->name('datatables.getemployees');
 Route::resource('employee', 'EmployeeController');
+
 Route::get('/getobject', 'TobjectController@getObjects')->name('datatables.getObjects');
 Route::resource('object', 'TobjectController');
 
+Route::get('/getsubject', 'SubjectController@getSubjects')->name('datatables.getSubjects');
+Route::resource('subject', 'SubjectController')->only([
+    'index', 'create', 'store',
+
+]);
+
+route::get('getEdit', 'SubjectController@getAddEditRemoveColumnData')->name('datatables.getAddEditRemoveColumnData');
+
+
+
+Route::get('/subject/pdf', 'DynamicPDFController@pdf');
+
+
+
+Route::get('/yandex', function (){
+    return view('yandex');
+});
 
 //Route::get('/tObject/{tObject}', 'TObjectsController@show')->name('show');
 //Route::get('/tObject/{tObject}/edit', 'TObjectsController@edit')->name('edit');

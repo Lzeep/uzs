@@ -86,7 +86,7 @@
 
                 <div class="links">
                     <a href="/map">Карта</a>
-                    <a href="{{ route('tObject.index') }}">Объекты</a>
+                    <a href="{{ route('subject.index') }}">Объекты</a>
                     <a href="{{ route('employee.index') }}">Сотрудники</a>
                     <a href="#">О нас</a>
                     <a href="#">Справочник</a>

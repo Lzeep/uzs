@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Employee;
 
 use DB;
+use function foo\func;
 use Illuminate\Http\Request;
 
+use Symfony\Component\VarDumper\Cloner\Data;
 use Yajra\DataTables\DataTables;
 
 class EmployeeController extends Controller
@@ -32,6 +34,22 @@ class EmployeeController extends Controller
             ->make(true);
     }
 
+    public function getAddEditRemoveColumn()
+    {
+        return view('employee.edit');
+    }
+
+    public function editData(){
+        $employee = Employee::select(['id', 'Full_name', 'Address', 'Phone', 'position_id', 'district_id']);
+
+        return DataTables::of($$employee)
+            ->addColumn('action', function ($employee){
+                return '<a href="#edit-'.$employee->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
+
+            })
+            ->editColumn('id', 'ID:{{$id}}')
+            ->make(true);
+    }
 public function filter(Request $request){
         $employee = Employee::select('*');
 
