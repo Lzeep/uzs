@@ -31,8 +31,15 @@ class SubjectController extends Controller
     public function getSubjects(Request $request)
     {
         $subjects = Subject::with('image', 'status', 'violation', 'result', 'employee')->select('*');
+//
+//        return Datatables::of($subjects)
+//            ->make(true);
 
         return Datatables::of($subjects)
+            ->addColumn('action', function ($subject) {
+                return '<a href="/subject/'.$subject->id.'"  class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
+            })
+            ->editColumn('id', 'ID: {{$id}}')
             ->make(true);
     }
 
@@ -90,7 +97,9 @@ class SubjectController extends Controller
      */
     public function edit(Subject $subject)
     {
-        //
+        return view('subject.edit', [
+            'subject'=>$subject,
+        ]);
     }
 
     /**
@@ -118,25 +127,18 @@ class SubjectController extends Controller
 
     public function pdfexport()
     {
-        $pdf = \Barryvdh\DomPDF\PDF::loadView('subject.index')->setPaper('a4', 'portrait');
+        $subject = Subject::all();
+        $pdf = \Barryvdh\DomPDF\PDF::loadView('subject.pdf', ['subject'=>$subject])->setPaper('a4', 'portrait');
         return $pdf->stream();
+
     }
 
-    public function getAddEditRemoveColumn()
-    {
-        return view('subject.index');
-    }
+
 
     public function getAddEditRemoveColumnData()
     {
-        $subjects = Subject::select(['id','address', 'name', 'owner', 'status_id', 'violation_id', 'result_id',
-            'document', 'employee_id', 'updates_at']);
 
-        return Datatables::of($subjects)
-            ->addColumn('action', function ($subject) {
-                return '<a href="#edit-'.$subject->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
-            })
-            ->editColumn('id', 'ID: {{$id}}')
-            ->make(true);
+
+
     }
 }

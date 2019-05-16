@@ -23,6 +23,7 @@
                         <th>Документы</th>
                         <th>Сотрудник</th>
                         <th>Дата обновления</th>
+                        <th>Действия</th>
                     </tr>
 
                     <tfoot>
@@ -37,6 +38,7 @@
                         <th>Документы</th>
                         <th>Сотрудник</th>
                         <th>Дата обновления</th>
+                        <th>Действия</th>
                     </tr>
                     </tfoot>
                 </table>
@@ -58,23 +60,34 @@
     <script>
         $(function() {
             $('#subject-table').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: '{!! route('datatables.getSubjects') !!}',
-                columns: [
-                    { data: 'id', name: 'id' },
-                    { data: 'address', name: 'address' },
-                    { data: 'name', name: 'name' },
-                    { data: 'owner', name: 'owner' },
-                    { data: 'status.name', name: 'status.name' },
-                    { data: 'violation.name', name: 'violation.name' },
-                    { data: 'result.name', name: 'result.name'},
-                    { data: 'document', name: 'document' },
-                    { data: 'employee.Full_name', name: 'employee.Full_name' },
-                    { data: 'updated_at', name: 'updated_at' },
-                ]
+                    processing: true,
+                    serverSide: true,
+                    ajax: '{!! route('datatables.getSubjects') !!}',
+                    columns: [
+                        {data: 'id', name: 'id'},
+                        {data: 'address', name: 'address'},
+                        {data: 'name', name: 'name'},
+                        {data: 'owner', name: 'owner'},
+                        {data: 'status.name', name: 'status.name'},
+                        {data: 'violation.name', name: 'violation.name'},
+                        {data: 'result.name', name: 'result.name'},
+                        {data: 'document', name: 'document'},
+                        {data: 'employee.Full_name', name: 'employee.Full_name'},
+                        {data: 'updated_at', name: 'updated_at'},
+                        {data: 'action', name: 'action', orderable: false, searchable: false},
 
-            });
+                    ],
+
+
+                    "language": {
+                        "paginate": {
+                            "next": "прост page"
+                        },
+
+                        "info": "Показана страница _PAGE_ из _PAGES_"
+                    }
+                }
+            );
         });
          $(document).ready(function() {
              // Setup - add a text input to each footer cell
@@ -100,24 +113,7 @@
              } );
          } );
 
-        $('#subject-table').DataTable({
-            processing: true,
-            serverSide: true,
-            ajax: '{!! route('datatables.getAddEditRemoveColumnData') !!}',
-            columns: [
-                { data: 'id', name: 'id' },
-                { data: 'address', name: 'address' },
-                { data: 'name', name: 'name' },
-                { data: 'owner', name: 'owner' },
-                { data: 'status.name', name: 'status.name' },
-                { data: 'violation.name', name: 'violation.name' },
-                { data: 'result.name', name: 'result.name'},
-                { data: 'document', name: 'document' },
-                { data: 'employee.Full_name', name: 'employee.Full_name' },
-                { data: 'updated_at', name: 'updated_at' },
-                {data: 'action', name: 'action', orderable: false, searchable: false}
-            ]
-        });
+
     </script>
 
 @endpush

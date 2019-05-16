@@ -34,7 +34,7 @@ Route::get('/app', function (){
 });
 
 Route::resource('/tObject', 'TobjectController')->only([
-    'index', 'create', 'store',
+    'index', 'create', 'store', 'edit',
 ]);
 
 
@@ -55,9 +55,9 @@ Route::resource('subject', 'SubjectController')->only([
 
 route::get('getEdit', 'SubjectController@getAddEditRemoveColumnData')->name('datatables.getAddEditRemoveColumnData');
 
+Route::get('subject/{id}', 'SubjectController@edit');
 
-
-Route::get('/subject/pdf', 'DynamicPDFController@pdf');
+Route::get('/subject/pdfexport', 'SubjectController@pdfexport');
 
 
 
