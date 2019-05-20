@@ -24,7 +24,18 @@
                         <th>Дата обновления</th>
                     </tr>
                     @foreach($subjects as $subject)
+                    <tbody>
+                    <tr>
+                        <td>{{$subject->address }}</td>
+                        <td>{{ $suject->name }}</td>
+                        <td>{{ $suject->owner }}</td>
+                        <td>{{ $suject->status_id }}</td>
+                        <td>{{ $suject->violation_id }}</td>
+                        <td>{{ $suject->result_id }}</td>
+                        <td>{{ $suject->document }}</td>
 
+                    </tr>
+                    </tbody>
 
                     @endforeach
 

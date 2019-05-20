@@ -21,11 +21,11 @@ Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/', function(){
-    return view('welcome');
-});
+//Route::get('/', function(){
+//    return view('welcome');
+//});
 
-Route::get('/home', function(){
+Route::get('/', function(){
     return view('home');
 });
 
@@ -49,16 +49,20 @@ Route::resource('object', 'TobjectController');
 
 Route::get('/getsubject', 'SubjectController@getSubjects')->name('datatables.getSubjects');
 Route::resource('subject', 'SubjectController')->only([
-    'index', 'create', 'store',
+    'index', 'create', 'store', 'edit', 'update'
 
 ]);
 
-route::get('getEdit', 'SubjectController@getAddEditRemoveColumnData')->name('datatables.getAddEditRemoveColumnData');
+Route::get('getEdit', 'SubjectController@getAddEditRemoveColumnData')->name('datatables.getAddEditRemoveColumnData');
 
 Route::get('subject/{id}', 'SubjectController@edit');
 
 Route::get('/subject/pdfexport', 'SubjectController@pdfexport');
 
+Route::get('/wel', function ()
+{
+    return view('index');
+});
 
 
 Route::get('/yandex', function (){

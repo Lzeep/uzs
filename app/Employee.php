@@ -20,4 +20,8 @@ class Employee extends Model
     {
         return $this->hasMany('App\Subject');
     }
+    public function district()
+    {
+        return $this->belongsTo('App\District');
+    }
 }

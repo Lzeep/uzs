@@ -7,7 +7,7 @@
             <div class="row justify-content-xl-center">
                 <input type="hidden">
                 <a href="{{ route('subject.create') }}" class="btn btn-success">Добавить новый объект</a>
-                <a href="{{ url('subject/pdf') }}" class="btn btn-info">Convert into PDF</a>
+                <a href="{{ url('subject/pdfexport') }}" class="btn btn-info">Convert into PDF</a>
             </div>
             <div class="col-12" style="overflow: auto;">
                 <table class="table table-bordered" id="subject-table">
@@ -84,7 +84,11 @@
                             "next": "прост page"
                         },
 
-                        "info": "Показана страница _PAGE_ из _PAGES_"
+                        "info": "Показана страница _PAGE_ из _PAGES_",
+
+                        "columnDefs": [
+                            { "width": "20%" },
+                        ]
                     }
                 }
             );

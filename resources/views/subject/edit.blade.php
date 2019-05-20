@@ -8,50 +8,60 @@
                 @method('PUT')
 
 
-                <div class="form-group">
-                    <label>#</label>
-                    <input type="text" class="form-group" name="id" value="{{ $subject->id}}">
-                </div>
+
                 <div class="form-group">
                     <label>Адрес</label>
-                    <input type="text" class="form-group" name="address" value="{{ $subject->Object_id }}">
+                    <input type="text" class="form-control" name="address" value="{{ $subject->address }}">
                 </div>
                 <div class="form-group">
-                    <label>Наименование</label>
-                    <input type="text" class="form-group" name="Name_of_object" value="{{ $subject->Name_of_object }}">
+                    <label>Наименование объекта</label>
+                    <input type="text" class="form-control" name="name" value="{{ $subject->name }}">
                 </div>
                 <div class="form-group">
-                    <label>Владелец</label>
-                    <input type="text" class="form-group" name="Owner_name" value="{{ $subject->Owner_name }}">
+                    <label>ФИО Владелеца</label>
+                    <input type="text" class="form-control" name="owner" value="{{ $subject->owner }}">
                 </div>
                 <div class="form-group">
-                    <label>Статус земли</label>
-                    <input type="text" class="form-group" name="Status_of_the_land" value="{{ $subject->Status_of_the_land }}">
+                    <label>Статус земельного участка</label>
+                    <select class="form-control" name="status_id" id="">
+                        @foreach($statuses as $status)
+                            <option value="{{ $status->id }}" {{ $status->id === $subject->status_id ? 'selected' : '' }}>{{ $status->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label>Статус объекта</label>
-                    <input type="text" class="form-group" name="Status_of_object" value="{{ $subject->Status_of_object }}">
-                </div>
-                <div class="form-group">
-                    <label>Нарушения</label>
-                    <input type="text" class="form-group" name="Voalation_id" value="{{ $subject->Voalation_id }}">
+                    <label>Вид нарушения</label>
+                    <select class="form-control" name="violation_id" id="">
+                        @foreach($violations as $violation)
+                            <option value="{{$violation->id}}" {{ $violation->id === $subject->violation_id ? 'selected' : '' }}> {{ $violation->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <label>Результат принятых мер</label>
-                    <input type="text" class="form-group" name="Result_of_measures" value="{{ $subject->Result_of_measures }}">
+                    <select name="result_id" class="form-control" id="">
+                        @foreach($results as $result)
+                            <option value="{{ $result->id }}" {{ $result->id === $subject->result_id ? 'selected:' : '' }}>{{ $result->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label>Примечание</label>
-                    <input type="text" class="form-group" name="Note" value="{{ $subject->Note }}">
+                    <label>Документы</label>
+                    <input type="text" class="form-control" name="document" value="{{ $subject->document }}">
                 </div>
                 <div class="form-group">
                     <label>Сотрудник</label>
-                    <input type="text" class="form-group" name="Employee_id" value="{{ $subject->Employee_id }}">
+                    <select name="employee_id" class="form-control" id="">
+                        @foreach($employees as $employee)
+                            <option value="{{$employee->id}}" {{ $employee->id === $subject->employee_id  ? 'selected' : ''}}>{{$employee->Full_name}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <label>Дата обновления</label>
-                    <input type="date" class="form-group" name="Date_edit" value="{{ $subject->Date_edit }}">
+                    <input type="date" class="form-control" name="updated_at" value="{{ $subject->updated_at }}">
                 </div>
+                <button type="Сохранить" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>

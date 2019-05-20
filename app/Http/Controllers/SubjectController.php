@@ -37,9 +37,8 @@ class SubjectController extends Controller
 
         return Datatables::of($subjects)
             ->addColumn('action', function ($subject) {
-                return '<a href="/subject/'.$subject->id.'"  class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
+                return '<a href="'.route('subject.edit', $subject).'"  class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
             })
-            ->editColumn('id', 'ID: {{$id}}')
             ->make(true);
     }
 
@@ -98,7 +97,11 @@ class SubjectController extends Controller
     public function edit(Subject $subject)
     {
         return view('subject.edit', [
-            'subject'=>$subject,
+            'subject' => $subject,
+            'statuses' => Land::all(),
+            'violations' => Violation::all(),
+            'results' => Result::all(),
+            'employees' => Employee::all(),
         ]);
     }
 
@@ -111,7 +114,8 @@ class SubjectController extends Controller
      */
     public function update(Request $request, Subject $subject)
     {
-        //
+        $subject->update($request->all());
+        return redirect(route('subject.index'));
     }
 
     /**
@@ -128,7 +132,7 @@ class SubjectController extends Controller
     public function pdfexport()
     {
         $subject = Subject::all();
-        $pdf = \Barryvdh\DomPDF\PDF::loadView('subject.pdf', ['subject'=>$subject])->setPaper('a4', 'portrait');
+        $pdf = loadView('subject.pdf', ['subject'=>$subject])->setPaper('a4', 'portrait');
         return $pdf->stream();
 
     }
@@ -138,7 +142,10 @@ class SubjectController extends Controller
     public function getAddEditRemoveColumnData()
     {
 
-
+            $subjects = Subject::all();
+            return view('subject.pdf', [
+                'subjects'=>$subjects,
+            ]);
 
     }
 }

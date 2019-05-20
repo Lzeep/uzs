@@ -13,7 +13,7 @@
                         <th>Адрес</th>
                         <th>Телефон</th>
                         <th>Должность</th>
-                        <th>Район</th>
+                        {{--<th>Район</th>--}}
 
                     </tr>
                     </thead>
@@ -24,8 +24,7 @@
                         <th>ФИО</th>
                         <th>Адрес</th>
                         <th>Телефон</th>
-                        <th></th>
-                        <th></th>
+
 
                     </tr>
                     </tfoot>
@@ -55,9 +54,10 @@
                     { data: 'Address', name: 'Address' },
                     { data: 'Phone', name: 'Phone' },
                     { data: 'position', name: 'position.name' },
-                    { data: 'district_id', name: 'district_id' },
+                    // { data: 'district', name: 'district.name' },
 
                 ]
+
             });
         });
         $(document).ready(function() {
@@ -101,5 +101,6 @@
         //         {data: 'action', name: 'action', orderable: false, searchable: false}
         //     ]
         // });
+
     </script>
 @endpush

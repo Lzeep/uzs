@@ -74,18 +74,6 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                {{--<div class="collapse navbar--collapse" id="#navbarSupportedContent">--}}
-                    {{--<ul class="navbar-nav mr-auto">--}}
-
-                    {{--</ul>--}}
-
-                    {{--<ul class="navbar-nav ml-auto">--}}
-                        {{--<li class="nav-item">--}}
-                            {{--<a class="nav-link" href="{{ route('tObject.index') }}">Сущности</a>--}}
-                        {{--</li>--}}
-                    {{--</ul>--}}
-                {{--</div>--}}
-
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
@@ -94,14 +82,38 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Новости</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Об управлении</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">История города</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/map">Карта города</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Контакты</a>
+                        </li>
+                        @if(Auth::user())
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('subject.index')}}">Объекты</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('employee.index')}}">Сотрудники</a>
+                        </li>
+                        @endif
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Войти') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Регистрация') }}</a>
                                 </li>
                             @endif
                         @else
@@ -114,7 +126,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Выйти') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -122,6 +134,8 @@
                                     </form>
                                 </div>
                             </li>
+
+
                         @endguest
                     </ul>
                 </div>
