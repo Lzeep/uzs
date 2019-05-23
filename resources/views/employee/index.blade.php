@@ -56,7 +56,18 @@
                     { data: 'position', name: 'position.name' },
                     // { data: 'district', name: 'district.name' },
 
-                ]
+                ],
+                "language": {
+                    "paginate": {
+                        "next": "Следующая",
+                        "previous": "Предыдущая"
+                    },
+
+                    "info": "Показана страница _PAGE_ из _PAGES_",
+
+                    "search":         "Поиск:",
+                    "lengthMenu":     "Показать _MENU_ записей",
+                }
 
             });
         });
@@ -65,7 +76,7 @@
             $('#employees-table tfoot th').each( function () {
                 var title = $(this).text();
                 if (title) {
-                    $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+                    $(this).html( '<input type="text" placeholder="Поиск '+title+'" />' );
                 }
             } );
 
@@ -84,7 +95,8 @@
                     }
                 } );
             } );
-        } );
+        }
+        );
 
         // $('#users-table').DataTable({
         //     processing: true,

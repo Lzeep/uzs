@@ -11,6 +11,7 @@ use App\Employee;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use PDF;
+use Illuminate\Support\Facades\Validator;
 
 class SubjectController extends Controller
 {
@@ -28,6 +29,15 @@ class SubjectController extends Controller
         ]);
     }
 
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'address' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
+            'owner' => ['required', 'string', 'max:255'],
+        ]);
+    }
+
     public function getSubjects(Request $request)
     {
         $subjects = Subject::with('image', 'status', 'violation', 'result', 'employee')->select('*');
@@ -37,7 +47,7 @@ class SubjectController extends Controller
 
         return Datatables::of($subjects)
             ->addColumn('action', function ($subject) {
-                return '<a href="'.route('subject.edit', $subject).'"  class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
+                return '<a href="'.route('subject.edit', $subject).'"  class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Редактиорвать</a>';
             })
             ->make(true);
     }

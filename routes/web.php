@@ -21,9 +21,9 @@ Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
-//Route::get('/', function(){
-//    return view('welcome');
-//});
+Route::get('/qq', function(){
+    return view('welcome');
+});
 
 Route::get('/', function(){
     return view('home');
@@ -34,7 +34,7 @@ Route::get('/app', function (){
 });
 
 Route::resource('/tObject', 'TobjectController')->only([
-    'index', 'create', 'store', 'edit',
+    'index', 'create', 'store', 'edit'
 ]);
 
 
@@ -69,14 +69,16 @@ Route::get('/yandex', function (){
     return view('yandex');
 });
 
+
+
 //Route::get('/tObject/{tObject}', 'TObjectsController@show')->name('show');
 //Route::get('/tObject/{tObject}/edit', 'TObjectsController@edit')->name('edit');
 
-Route::get('/map', function(){
-    return view('front');
+//Route::get('/map', function(){
+//    return view('front');
 
 
-});
+//});
 
 
 

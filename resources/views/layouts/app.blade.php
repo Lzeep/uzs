@@ -38,12 +38,12 @@
             text-align: center;
             font-size: 25px;
             cursor: pointer;
-            color: white;
+            color: red;
         }
 
         .containerTab {
             padding: 20px;
-            color: white;
+            color: red;
         }
 
         /* Clear floats after the columns */
@@ -56,7 +56,7 @@
         /* Closable button inside the container tab */
         .closebtn {
             float: right;
-            color: white;
+            color: red;
             font-size: 35px;
             cursor: pointer;
         }
@@ -64,7 +64,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <nav class="navbar navbar-expand-md navbar-light navbar-laravel" style="color: #333;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset('images/zus.png') }}" alt="" style="width:130px; height: auto;">
@@ -93,7 +93,7 @@
                             <a class="nav-link" href="#">История города</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/map">Карта города</a>
+                            <a class="nav-link" href="/yandex">Карта города</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Контакты</a>

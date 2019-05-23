@@ -77,18 +77,16 @@
                         {data: 'action', name: 'action', orderable: false, searchable: false},
 
                     ],
-
-
                     "language": {
                         "paginate": {
-                            "next": "прост page"
+                            "next": "Следующая",
+                            "previous": "Предыдущая"
                         },
 
                         "info": "Показана страница _PAGE_ из _PAGES_",
 
-                        "columnDefs": [
-                            { "width": "20%" },
-                        ]
+                        "search":         "Поиск:",
+                        "lengthMenu":     "Показать _MENU_ записей",
                     }
                 }
             );
