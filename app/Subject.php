@@ -32,4 +32,16 @@ class Subject extends Model
     {
         return $this->belongsTo('App\Employee', 'employee_id');
     }
+    public function mtu()
+    {
+        return $this->belongsTo('App\Mtu', 'mtu_id');
+    }
+    public function type()
+    {
+        return $this->belongsTo('App\Type', 'type_id');
+    }
+    public function district()
+    {
+        return $this->belongsTo('App\District', 'district_id');
+    }
 }

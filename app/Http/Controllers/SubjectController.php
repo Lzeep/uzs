@@ -40,7 +40,7 @@ class SubjectController extends Controller
 
     public function getSubjects(Request $request)
     {
-        $subjects = Subject::with('image', 'status', 'violation', 'result', 'employee')->select('*');
+        $subjects = Subject::with('image', 'status', 'violation', 'result', 'employee', 'mtu', 'district','type')->select('*');
 //
 //        return Datatables::of($subjects)
 //            ->make(true);
@@ -149,12 +149,11 @@ class SubjectController extends Controller
 
 
 
-    public function getAddEditRemoveColumnData()
+    public function map()
     {
-
             $subjects = Subject::all();
-            return view('subject.pdf', [
-                'subjects'=>$subjects,
+            return view('yandex',[
+                'subjects' => $subjects,
             ]);
 
     }

@@ -57,7 +57,7 @@ Route::get('getEdit', 'SubjectController@getAddEditRemoveColumnData')->name('dat
 
 Route::get('subject/{id}', 'SubjectController@edit');
 
-Route::get('/subject/pdfexport', 'SubjectController@pdfexport');
+Route::get('/yandex', 'SubjectController@map');
 
 Route::get('/wel', function ()
 {
