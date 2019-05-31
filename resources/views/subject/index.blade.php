@@ -12,9 +12,9 @@
                     <thead>
                     <tr>
                         <th style="width: 1%">#</th>
-                        {{--<th>Район</th>--}}
-                        {{--<th>МТУ</th>--}}
-                        {{--<th>Тип объекта</th>--}}
+                        <th>Район</th>
+                        <th>МТУ</th>
+                        <th>Тип объекта</th>
                         <th>Адрес</th>
                         <th>Наименование объекта</th>
                         <th>Владелец</th>
@@ -24,14 +24,15 @@
                         <th>Документы</th>
                         <th>Сотрудник</th>
                         <th>Дата обновления</th>
-                        <th>Действия</th>
+                        {{--<th>Действия</th>--}}
+                        <th>Картинки</th>
                     </tr>
                     <tfoot>
                     <tr>
                         <th>#</th>
-                        {{--<th>Район</th>--}}
-                        {{--<th>МТУ</th>--}}
-                        {{--<th>Тип объекта</th>--}}
+                        <th>Район</th>
+                        <th>МТУ</th>
+                        <th>Тип объекта</th>
                         <th>Адрес</th>
                         <th>Наименование объекта</th>
                         <th>Владелец</th>
@@ -41,7 +42,8 @@
                         <th>Документы</th>
                         <th>Сотрудник</th>
                         <th>Дата обновления</th>
-                        <th>Действия</th>
+                        {{--<th>Действия</th>--}}
+                        <th>Картинки</th>
                     </tr>
                     </tfoot>
                 </table>
@@ -58,11 +60,13 @@
     </style>
     <link rel="stylesheet" href="{{asset('css/dataTables.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/buttons.dataTables.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/lc_lightbox.css') }}"/>
 
+    <link rel="stylesheet" href="{{ asset('css/skins/minimal.css') }}"/>
 @endpush
 
 @push('scripts')
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src='https://code.jquery.com/jquery-3.2.1.min.js' type='text/javascript'></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js"></script>
@@ -73,17 +77,19 @@
     <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.colVis.min.js"></script>
     <script src="https://cdn.datatables.net/select/1.3.0/js/dataTables.select.min.js"></script>
+    <script src="{{asset("js/lightbox.min.js")}}"></script>
     <script>
         $(function() {
-            $('#subject-table').DataTable({
+            var table = $('#subject-table').DataTable({
                     processing: true,
                     serverSide: true,
                     ajax: '{!! route('datatables.getSubjects') !!}',
                     columns: [
-                        // {data: 'district_id', name: 'district_id'},
-                        // {data: 'mtu.name', name: 'mtu.name'},
-                        // {data: 'type_id', name: 'type_id'},
                         {data: 'id', name: 'id'},
+                        {data: 'district.name', name: 'district.name'},
+                        {data: 'mtu.name', name: 'mtu.name'},
+                        {data: 'type.name', name: 'type.name'},
+
                         {data: 'address', name: 'address'},
                         {data: 'name', name: 'name'},
                         {data: 'owner', name: 'owner'},
@@ -93,7 +99,8 @@
                         {data: 'document', name: 'document'},
                         {data: 'employee.Full_name', name: 'employee.Full_name'},
                         {data: 'updated_at', name: 'updated_at'},
-                        {data: 'action', name: 'action', orderable: false, searchable: false},
+                        // {data: 'action', name: 'action', orderable: false, searchable: false},
+                        {data: 'image', name: 'image', orderable: false, searchable: false},
 
                     ],
 
@@ -148,31 +155,33 @@
                     }
                 }
             );
+            $('#subject-table tfoot th').each( function () {
+                var title = $(this).text();
+                $(this).html( '<input type="text" placeholder="Поиск по '+title+'" />' );
+            } );
+            table.columns().every( function () {
+                var that = this;
+                $( 'input', this.footer() ).on( 'keyup change', function () {
+                    if ( that.search() !== this.value ) {
+                        that
+                            .search( this.value )
+                            .draw();
+                    }
+                } );
+            } );
         });
-         $(document).ready(function() {
-             // Setup - add a text input to each footer cell
-             $('#subject-table tfoot th').each( function () {
-                 var title = $(this).text();
-                 $(this).html( '<input type="text" placeholder="Поиск по '+title+'" />' );
-             } );
 
-             // DataTable
-             var table = $('#subject-table').DataTable();
-
-             // Apply the search
-             table.columns().every( function () {
-                 var that = this;
-
-                 $( 'input', this.footer() ).on( 'keyup change', function () {
-                     if ( that.search() !== this.value ) {
-                         that
-
-                             .search( this.value )
-                             .draw();
-                     }
-                 } );
-             } );
-
-         } );
+        $(document).ready(function (e) {
+            // live handler
+            lc_lightbox('.elem', {
+                wrap_class: 'lcl_fade_oc',
+                gallery: true,
+                thumb_attr: 'data-lcl-thumb',
+                skin: 'minimal',
+                radius: 0,
+                padding: 0,
+                border_w: 0,
+            });
+        });
     </script>
 @endpush

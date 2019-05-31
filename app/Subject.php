@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subject extends Model
 {
-    protected $fillable = ['address', 'name', 'image_id', 'owner', 'status_id', 'violation_id', 'result_id',
+    protected $fillable = ['district_id', 'mtu_id', 'type_id','address', 'name', 'owner', 'status_id', 'violation_id', 'result_id',
         'document', 'employee_id', 'latitude', 'longitude'];
-    public function image()
+    public function images()
     {
-        return $this->belongsTo('App\Image', 'image_id');
+        return $this->belongsToMany('App\Image');
     }
 
     public function status()
@@ -40,8 +40,10 @@ class Subject extends Model
     {
         return $this->belongsTo('App\Type', 'type_id');
     }
+
     public function district()
     {
         return $this->belongsTo('App\District', 'district_id');
     }
+
 }

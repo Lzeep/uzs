@@ -39,7 +39,7 @@ Route::resource('/tObject', 'TobjectController')->only([
 
 
 
-Route::get('/search', 'TobjectController@search');
+//Route::get('/search', 'TobjectController@search');
 
 Route::get('/getemployees', 'EmployeeController@getEmployees')->name('datatables.getemployees');
 Route::resource('employee', 'EmployeeController');
@@ -65,9 +65,9 @@ Route::get('/wel', function ()
 });
 
 
-Route::get('/yandex', function (){
-    return view('yandex');
-});
+//Route::get('/yandex', function (){
+//    return view('yandex');
+//});
 
 
 

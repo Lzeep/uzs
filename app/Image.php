@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
+    protected  $fillable = ['image'];
+
     public function subject()
     {
-        return $this->hasMany('App\Subject');
+        return $this->belongsToMany('App\Subject');
     }
 }

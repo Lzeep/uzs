@@ -3,13 +3,41 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <form action="{{ route('subject.store') }}" method="post" class="col-10">
+            <form action="{{ route('subject.store') }}" method="post" class="col-10" enctype="multipart/form-data">
                 @csrf
-
+                <div class="'form-group">
+                    <label>Район</label>
+                    <select class="form-control" name="district_id" id="district">
+                        @foreach($districts as $district)
+                            <option value="{{$district->id}}">{{ $district->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="'form-group">
+                    <label>МТУ</label>
+                    <select class="form-control" name="mtu_id" id="mtu">
+                        @foreach($mtus as $mtu)
+                            <option value="{{$mtu->id}}">{{ $mtu->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="'form-group">
+                    <label>Тип объекта</label>
+                    <select class="form-control" name="type_id" id="type">
+                        @foreach($types as $type)
+                            <option value="{{$type->id}}">{{ $type->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <div class="form-group">
                     <label>Адрес</label>
-                    <input type="text" class="form-control" id="address">
+                    <input type="text" class="form-control" name="address">
                 </div>
+                <div class="form-group">
+                    <label>Выберите картинки</label>
+                    <input type="file" name="images[]" multiple>
+                </div>
+
                 <div class="form-group">
                     <label>Наименование объекта</label>
                     <input type="text" class="form-control" name="name">
@@ -20,7 +48,7 @@
                 </div>
                 <div class="form-group">
                     <label>Статус земли</label>
-                    <select class="form-control" name="status" id="status">
+                    <select class="form-control" name="status_id" id="status">
                         @foreach($statuses as $status)
                             <option value="{{ $status->id }}">{{ $status->name }}</option>
                         @endforeach
@@ -39,17 +67,17 @@
                     <label>Результат принятых мер</label>
                     <select class="form-control" name="result_id">
                         @foreach($results as $result)
-                            <option value="{{ $result->name }}">{{ $result->name }}</option>
+                            <option value="{{ $result->id }}">{{ $result->name }}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Документы</label>
-                    <input type="text" class="form-control" name="documents">
+                    <input type="text" class="form-control" name="document">
                 </div>
                 <div class="form-group">
                     <label>Сотрудник</label>
-                    <select class="form-control" name="employeeId">
+                    <select class="form-control" name="employee_id">
                         @foreach($employees as $employee)
                             <option value="{{ $employee->id }}">{{$employee->Full_name}}</option>
                         @endforeach

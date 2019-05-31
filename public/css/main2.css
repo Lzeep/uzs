@@ -310,3 +310,12 @@ footer .foot-last-style a{
 		transition: 5s;
 	}
 }
+.backdrop{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left:0;
+    background-color: #0000005c;
+    z-index: 1;
+}

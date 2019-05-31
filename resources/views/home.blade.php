@@ -77,17 +77,21 @@
         <div class="container">
             <header id="home">
                 <div class="header">
+
                     <!-- START carousel-->
-                    <div id="carousel-example-captions-1" data-ride="carousel" class="carousel slide">
+                    <div id="carousel-example-captions-1" data-ride="carousel" class="carousel slide position-relative">
+                        <div class="backdrop">
+
+                        </div>
                         <div role="listbox" class="carousel-inner">
                             <div class="item active">
-                                <img src="images/1.jpg" alt="First slide image">
+                                <img src="images/citty.jpg" alt="First slide image">
                             </div>
                             <div class="item">
-                                <img src="images/2.jpg" alt="Second slide image">
+                                <img src="images/city3.jpg" alt="Second slide image">
                             </div>
                             <div class="item">
-                                <img src="images/3.jpg" alt="Third slide image">
+                                <img src="images/cit.jpg" alt="Third slide image">
                             </div>
                         </div>
 
