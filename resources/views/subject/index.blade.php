@@ -24,8 +24,8 @@
                         <th>Документы</th>
                         <th>Сотрудник</th>
                         <th>Дата обновления</th>
-                        {{--<th>Действия</th>--}}
-                        <th>Картинки</th>
+                        <th>Действия</th>
+                        {{--<th>Картинки</th>--}}
                     </tr>
                     <tfoot>
                     <tr>
@@ -42,8 +42,8 @@
                         <th>Документы</th>
                         <th>Сотрудник</th>
                         <th>Дата обновления</th>
-                        {{--<th>Действия</th>--}}
-                        <th>Картинки</th>
+                        <th>Действия</th>
+                        {{--<th>Картинки</th>--}}
                     </tr>
                     </tfoot>
                 </table>
@@ -99,8 +99,8 @@
                         {data: 'document', name: 'document'},
                         {data: 'employee.Full_name', name: 'employee.Full_name'},
                         {data: 'updated_at', name: 'updated_at'},
-                        // {data: 'action', name: 'action', orderable: false, searchable: false},
-                        {data: 'image', name: 'image', orderable: false, searchable: false},
+                        {data: 'action', name: 'action', orderable: false, searchable: false},
+                        // {data: 'image', name: 'image', orderable: false, searchable: false},
 
                     ],
 

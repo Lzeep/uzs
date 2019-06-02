@@ -44,36 +44,36 @@ class SubjectController extends Controller
 
 
         return Datatables::of($subjects)
-//            ->addColumn('action', function ($subject) {
-//                return '<a href="'.route('subject.edit', $subject).'"  class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Редактиорвать</a>';
-//
-//            })
-            ->addColumn('image', function($subject) {
-                if ($subject->images->count() > 0) {
-                    $start = '<a href="'.asset('uploads/'.$subject->images->first()->image).'"'.
-                        ' class="elem text-dark"'.
-                        ' data-lcl-thumb="'.asset('uploads/'.$subject->images->first()->image).'">'.
-                        'Все фото врача'.
-                        '</a>';
+            ->addColumn('action', function ($subject) {
+                return '<a href="'.route('subject.edit', $subject).'"  class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Редактиорвать</a>';
 
-                    $content = '<div class="content">';
-
-                    foreach ($subject->images as $index => $image) {
-                        if ($index != 0) {
-                            $content .= '<a class="elem" href="'. asset('uploads/'.$image->image).'"' .
-                                ' data-lcl-thumb="'.asset('uploads/'.$image->image).'">' .
-                                '<span style="background-image: url('.asset('uploads/'.$image->image).');"></span>' .
-                                '</a>';
-                        }
-                    }
-                    $content .= '</div>';
-
-                    $start .= $content;
-
-                    return $start;
-                }
-                return 'Nothing here';
             })
+//            ->addColumn('image', function($subject) {
+//                if ($subject->images->count() > 0) {
+//                    $start = '<a href="'.asset('uploads/'.$subject->images->first()->image).'"'.
+//                        ' class="elem text-dark"'.
+//                        ' data-lcl-thumb="'.asset('uploads/'.$subject->images->first()->image).'">'.
+//                        'Все фото врача'.
+//                        '</a>';
+//
+//                    $content = '<div class="content">';
+//
+//                    foreach ($subject->images as $index => $image) {
+//                        if ($index != 0) {
+//                            $content .= '<a class="elem" href="'. asset('uploads/'.$image->image).'"' .
+//                                ' data-lcl-thumb="'.asset('uploads/'.$image->image).'">' .
+//                                '<span style="background-image: url('.asset('uploads/'.$image->image).');"></span>' .
+//                                '</a>';
+//                        }
+//                    }
+//                    $content .= '</div>';
+//
+//                    $start .= $content;
+//
+//                    return $start;
+//                }
+//                return 'Nothing here';
+//            })
             ->make(true);
 
     }
