@@ -5,6 +5,10 @@
         <div class="row justify-content-center">
             <form action="{{ route('subject.store') }}" method="post" class="col-10" enctype="multipart/form-data">
                 @csrf
+                <div class="form-group">
+                    <label>Выберите снимок объекта</label>
+                    <input type="file" name="logo" multiple>
+                </div>
                 <div class="'form-group">
                     <label>Район</label>
                     <select class="form-control" name="district_id" id="district">

@@ -37,46 +37,58 @@ class SubjectController extends Controller
     public function getSubjects(Request $request)
     {
         $subjects = Subject::with('images', 'status', 'violation', 'result', 'employee', 'mtu', 'district','type')->select('*');
-//
-//        return Datatables::of($subjects)
-//            ->make(true);
+
 
 
 
         return Datatables::of($subjects)
+            //->addColumns('action', '<a href = "#">th<a/>')
+//            ->addColumn('action', function ($subject) {
+//                return '<a href="'.route('subject.create', $subject).'"  class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Картники</a>';
+//
+//            })
+//            ->make(true)
+//            ->toJson();
+
             ->addColumn('action', function ($subject) {
-                return '<a href="'.route('subject.edit', $subject).'"  class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Редактиорвать</a>';
+                return '<a href="'.route('subject.show', $subject).'"  class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Подробнее</a>';
 
             })
-//            ->addColumn('image', function($subject) {
-//                if ($subject->images->count() > 0) {
-//                    $start = '<a href="'.asset('uploads/'.$subject->images->first()->image).'"'.
-//                        ' class="elem text-dark"'.
-//                        ' data-lcl-thumb="'.asset('uploads/'.$subject->images->first()->image).'">'.
-//                        'Все фото врача'.
-//                        '</a>';
-//
-//                    $content = '<div class="content">';
-//
-//                    foreach ($subject->images as $index => $image) {
-//                        if ($index != 0) {
-//                            $content .= '<a class="elem" href="'. asset('uploads/'.$image->image).'"' .
-//                                ' data-lcl-thumb="'.asset('uploads/'.$image->image).'">' .
-//                                '<span style="background-image: url('.asset('uploads/'.$image->image).');"></span>' .
-//                                '</a>';
-//                        }
-//                    }
-//                    $content .= '</div>';
-//
-//                    $start .= $content;
-//
-//                    return $start;
-//                }
-//                return 'Nothing here';
-//            })
-            ->make(true);
 
-    }
+//            ->addColumn('image', function($subject) {
+//                 if ($subject->images->count() > 0) {
+//                     $start = '<a href="'.asset('uploads/'.$subject->images->first()->image).'"'.
+//                         ' class="elem text-dark"'.
+//                         ' data-lcl-thumb="'.asset('uploads/'.$subject->images->first()->image).'">'.
+//                         'Все фото врача'.
+//                         '</a>';
+//
+//                     $content = '<div class="content">';
+//
+//                     foreach ($subject->images as $index => $image) {
+//                         if ($index != 0) {
+//                             $content .= '<a class="elem" href="'. asset('uploads/'.$image->image).'"' .
+//                                 ' data-lcl-thumb="'.asset('uploads/'.$image->image).'">' .
+//                                 '<span style="background-image: url('.asset('uploads/'.$image->image).');"></span>' .
+//                                 '</a>';
+//                         }
+//                     }
+//                     $content .= '</div>';
+//
+//                     $start .= $content;
+//
+//                     return $start;
+//                 }
+//                 return 'Nothing here';
+//})
+
+
+
+    ->make(true);
+
+
+
+}
 
     /**
      * Show the form for creating a new resource.
@@ -138,7 +150,10 @@ class SubjectController extends Controller
      */
     public function show(Subject $subject)
     {
-        //
+        return view('subject.show', [
+            'subject' => $subject,
+            'district' => District::all(),
+        ]);
     }
 
     /**
@@ -155,6 +170,9 @@ class SubjectController extends Controller
             'violations' => Violation::all(),
             'results' => Result::all(),
             'employees' => Employee::all(),
+            'districts' => District::all(),
+            'mtus' => Mtu::all(),
+            'types' => Type::all(),
         ]);
     }
 
@@ -179,7 +197,8 @@ class SubjectController extends Controller
      */
     public function destroy(Subject $subject)
     {
-        //
+        $subject->delete();
+        return redirect()->back();
     }
 
 //    public function pdfexport()

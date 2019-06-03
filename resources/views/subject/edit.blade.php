@@ -8,7 +8,38 @@
                 @method('PUT')
 
 
-
+                <div class="form-group">
+                    <label>Выберите картинки</label>
+                    <input type="file" name="logo" multiple>
+                </div>
+                <div class="'form-group">
+                    <label>Район</label>
+                    <select class="form-control" name="district_id" id="district">
+                        @foreach($districts as $district)
+                            <option value="{{$district->id}}">{{ $district->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="'form-group">
+                    <label>МТУ</label>
+                    <select class="form-control" name="mtu_id" id="mtu">
+                        @foreach($mtus as $mtu)
+                            <option value="{{$mtu->id}}">{{ $mtu->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="'form-group">
+                    <label>Тип объекта</label>
+                    <select class="form-control" name="type_id" id="type">
+                        @foreach($types as $type)
+                            <option value="{{$type->id}}">{{ $type->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Выберите картинки</label>
+                    <input type="file" name="images[]" multiple>
+                </div>
                 <div class="form-group">
                     <label>Адрес</label>
                     <input type="text" class="form-control" name="address" value="{{ $subject->address }}">

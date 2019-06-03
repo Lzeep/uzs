@@ -48,10 +48,7 @@ Route::get('/getobject', 'TobjectController@getObjects')->name('datatables.getOb
 Route::resource('object', 'TobjectController');
 
 Route::get('/getsubject', 'SubjectController@getSubjects')->name('datatables.getSubjects');
-Route::resource('subject', 'SubjectController')->only([
-    'index', 'create', 'store', 'edit', 'update'
-
-]);
+Route::resource('subject', 'SubjectController');
 
 Route::get('getEdit', 'SubjectController@getAddEditRemoveColumnData')->name('datatables.getAddEditRemoveColumnData');
 
