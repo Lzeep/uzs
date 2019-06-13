@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <form action="/subject/{{ $subject->id }}" method="post" class="col-10">
+            <form action="/subject/{{ $subject->id }}" method="post" class="col-10" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 

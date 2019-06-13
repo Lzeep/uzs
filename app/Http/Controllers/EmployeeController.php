@@ -22,7 +22,6 @@ class EmployeeController extends Controller
     {
         return view('employee.index');
     }
-
     public function getEmployees(Request $request)
     {
         $employees = Employee::with('position')->select();
@@ -33,30 +32,23 @@ class EmployeeController extends Controller
             })
             ->make(true);
     }
-
     public function getAddEditRemoveColumn()
     {
         return view('employee.edit');
     }
-
     public function editData(){
         $employee = Employee::select(['id', 'Full_name', 'Address', 'Phone', 'position_id', 'district_id']);
 
         return DataTables::of($$employee)
             ->addColumn('action', function ($employee){
                 return '<a href="#edit-'.$employee->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
-
             })
             ->editColumn('id', 'ID:{{$id}}')
             ->make(true);
     }
 public function filter(Request $request){
         $employee = Employee::select('*');
-
-
-
     }
-
     /**
      * Show the form for creating a new resource.
      *

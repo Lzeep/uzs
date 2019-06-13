@@ -12,6 +12,8 @@ use App\Type;
 use App\Violation;
 use App\Employee;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 use Yajra\DataTables\DataTables;
 use PDF;
 use Illuminate\Support\Facades\Validator;
@@ -26,70 +28,28 @@ class SubjectController extends Controller
      */
     public function index()
     {
+//        Permission::create()
+//        auth()->user()->givePermissionTo('add_subject');
+//        auth()->user()->assignRole('inspector');
+       return  auth()->user()->permissions;
+
+
+
         $subjects = Subject::all();
 
         return view('subject.index',[
             'subjects'=>$subjects,
         ]);
     }
-
-
     public function getSubjects(Request $request)
     {
         $subjects = Subject::with('images', 'status', 'violation', 'result', 'employee', 'mtu', 'district','type')->select('*');
-
-
-
-
         return Datatables::of($subjects)
-            //->addColumns('action', '<a href = "#">th<a/>')
-//            ->addColumn('action', function ($subject) {
-//                return '<a href="'.route('subject.create', $subject).'"  class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Картники</a>';
-//
-//            })
-//            ->make(true)
-//            ->toJson();
-
             ->addColumn('action', function ($subject) {
                 return '<a href="'.route('subject.show', $subject).'"  class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Подробнее</a>';
-
             })
-
-//            ->addColumn('image', function($subject) {
-//                 if ($subject->images->count() > 0) {
-//                     $start = '<a href="'.asset('uploads/'.$subject->images->first()->image).'"'.
-//                         ' class="elem text-dark"'.
-//                         ' data-lcl-thumb="'.asset('uploads/'.$subject->images->first()->image).'">'.
-//                         'Все фото врача'.
-//                         '</a>';
-//
-//                     $content = '<div class="content">';
-//
-//                     foreach ($subject->images as $index => $image) {
-//                         if ($index != 0) {
-//                             $content .= '<a class="elem" href="'. asset('uploads/'.$image->image).'"' .
-//                                 ' data-lcl-thumb="'.asset('uploads/'.$image->image).'">' .
-//                                 '<span style="background-image: url('.asset('uploads/'.$image->image).');"></span>' .
-//                                 '</a>';
-//                         }
-//                     }
-//                     $content .= '</div>';
-//
-//                     $start .= $content;
-//
-//                     return $start;
-//                 }
-//                 return 'Nothing here';
-//})
-
-
-
     ->make(true);
-
-
-
 }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -114,7 +74,6 @@ class SubjectController extends Controller
             'types' => Type::all(),
         ]);
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -135,11 +94,14 @@ class SubjectController extends Controller
                 $image->save();
                 $subject->images()->attach($image);
             }
-
-
+        }
+        if($logo = $request->logo)
+        {
+            $fileName = ImageSaver::save($logo, 'uploads', 'subject_logo');
+            $subject->logo = $fileName;
+            $subject->save();
         }
         return redirect(route('subject.index'));
-
     }
 
     /**
@@ -155,7 +117,6 @@ class SubjectController extends Controller
             'district' => District::all(),
         ]);
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -175,7 +136,6 @@ class SubjectController extends Controller
             'types' => Type::all(),
         ]);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -186,9 +146,28 @@ class SubjectController extends Controller
     public function update(Request $request, Subject $subject)
     {
         $subject->update($request->all());
-        return redirect(route('subject.index'));
-    }
 
+        if($images = $request->images)
+        {
+            foreach($images as $image)
+            {
+                $fileName = ImageSaver::save($image, "uploads", "subject");
+                $image = new Image(["image" => $fileName]);
+                $image->save();
+                $subject->images()->attach($image);
+            }
+
+
+        }
+        if($logo = $request->logo)
+        {
+            $fileName = ImageSaver::save($logo, 'uploads', 'subject_logo');
+            $subject->logo = $fileName;
+            $subject->save();
+
+        }
+        return redirect(route('subject.show', $subject));
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -200,23 +179,11 @@ class SubjectController extends Controller
         $subject->delete();
         return redirect()->back();
     }
-
-//    public function pdfexport()
-//    {
-//        $subject = Subject::all();
-//        $pdf = loadView('subject.pdf', ['subject'=>$subject])->setPaper('a4', 'portrait');
-//        return $pdf->stream();
-//
-//    }
-
-
     public function map()
     {
             $subjects = Subject::all();
             return view ('yandex',[
                 'subjects' => $subjects,
             ]);
-
-//
     }
 }

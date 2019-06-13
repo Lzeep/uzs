@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('api/objects', 'TObjectsController@index');
+//Route::get('api/objects', 'TObjectsController@index');
 
 Route::get('/', function () {
     return view('front');
@@ -33,9 +33,9 @@ Route::get('/app', function (){
     return view('appmap');
 });
 
-Route::resource('/tObject', 'TobjectController')->only([
-    'index', 'create', 'store', 'edit'
-]);
+//Route::resource('/tObject', 'TobjectController')->only([
+//    'index', 'create', 'store', 'edit'
+//]);
 
 
 
@@ -44,8 +44,8 @@ Route::resource('/tObject', 'TobjectController')->only([
 Route::get('/getemployees', 'EmployeeController@getEmployees')->name('datatables.getemployees');
 Route::resource('employee', 'EmployeeController');
 
-Route::get('/getobject', 'TobjectController@getObjects')->name('datatables.getObjects');
-Route::resource('object', 'TobjectController');
+//Route::get('/getobject', 'TobjectController@getObjects')->name('datatables.getObjects');
+//Route::resource('object', 'TobjectController');
 
 Route::get('/getsubject', 'SubjectController@getSubjects')->name('datatables.getSubjects');
 Route::resource('subject', 'SubjectController');

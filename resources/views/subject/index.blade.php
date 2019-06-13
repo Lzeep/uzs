@@ -25,7 +25,7 @@
                         <th>Сотрудник</th>
                         <th>Дата обновления</th>
                         <th>Действия</th>
-                        <th>Картинки</th>
+
 
                     </tr>
                     <tfoot>
@@ -44,7 +44,6 @@
                         <th>Сотрудник</th>
                         <th>Дата обновления</th>
                         <th>Действия</th>
-                        <th>Картинки</th>
 
                     </tr>
                     </tfoot>
@@ -101,7 +100,7 @@
                         {data: 'employee.Full_name', name: 'employee.Full_name'},
                         {data: 'updated_at', name: 'updated_at'},
                         {data: 'action', name: 'action', orderable: false, searchable: false},
-                        {data: 'action', name: 'action', orderable: false, searchable: false},
+
 
 
 

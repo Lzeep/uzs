@@ -9,6 +9,7 @@
             <div class="col-auto">
                 <a class="btn btn-success mr-4" href="{{ route('subject.edit', $subject) }}">Редактировать</a>
                 <a class="btn btn-outline-danger mr-4" href="{{ route('subject.destroy', $subject) }}">Удалить</a>
+                <button class="open_fast">Заметка</button>
             </div>
         </div>
         <div class="row pt-15">
@@ -123,7 +124,17 @@
 
 
         </div>
+        <div class="popup-fast">
+            <h3>Введите причину удаления</h3>
+            <div class="form">
+                <form action="">
+                    <input type="text" name="name" class="input_name" placeholder="Ваше  имя">
+                    <button type = "button" class="btn" >Отправить</button>
+                </form>
+            </div>
+        </div>
     </div>
+
 
 
 
@@ -131,6 +142,40 @@
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/lc_lightbox.css') }}"/>
     <link rel="stylesheet" href="{{ asset('css/skins/minimal.css') }}"/>
+
+    <style>
+        .popup-fast {
+            width: 290px;
+            height: 432px;
+            background: #f5eee1;
+            z-index: 100;
+            padding: 23px 0 0 27px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            display: none;
+
+
+        }
+
+
+
+            h3{
+                font-size: 26px;
+                color: #483c36;
+                font-weight: bold;
+            }
+
+            ul{
+
+            }
+            .form{
+
+            }
+
+    </style>
 
 @endpush
 @push('scripts')
@@ -173,5 +218,10 @@
                 border_w: 0,
             });
         });
+    </script>
+    <script>
+        $('.open_fast').click(function(){
+            $('.popup_fast').addClass('active');
+        })
     </script>
 @endpush
