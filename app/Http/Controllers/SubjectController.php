@@ -9,6 +9,7 @@ use App\Result;
 use App\Land;
 use App\Image;
 use App\Type;
+use App\User;
 use App\Violation;
 use App\Employee;
 use Illuminate\Http\Request;
@@ -31,8 +32,15 @@ class SubjectController extends Controller
 //        Permission::create()
 //        auth()->user()->givePermissionTo('add_subject');
 //        auth()->user()->assignRole('inspector');
-       return  auth()->user()->permissions;
+//        $permission = Permission::findById(1);
+//        $role = Role::findById(1);
+//        $role->givePermissionTo($permission);
 
+//        return  auth()->user()->permissions;
+//        return User::permission('add_subject')->get();
+//        $role = Role::findById(3);
+//        $permission = Permission::findById(3);
+//        $role->givePermissionTo($permission);
 
 
         $subjects = Subject::all();

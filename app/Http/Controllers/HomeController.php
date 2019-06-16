@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        Role::create(['name'=>'inspector']);
+        //Role::create(['name'=>'inspector']);
 
         return view('home');
     }
