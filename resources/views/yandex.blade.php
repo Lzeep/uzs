@@ -48,7 +48,6 @@
             @foreach($subjects as $subject)
         var doctorPlacemark{{ $subject->id }} = new ymaps.Placemark([{{ $subject->latitude ?? 42.865388923088396 }}, {{ $subject->longtitude ?? 74.60104350048829 }}], {
                 balloonContent: '<p class="font-weight-bold mb-1">{{ $subject->name }}</p>',
-
                 hintContent: '<p class="font-weight-bold mb-1">{{ $subject->name }}</p>' +
                 '<p class="mb-0">Адрес: {{ $subject->address }}</p>',
 

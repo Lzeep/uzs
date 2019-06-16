@@ -5,7 +5,9 @@
         <div class="row">
             <div class="row justify-content-xl-between">
                 <input type="hidden">
-                <a href="{{ route('subject.create') }}" class="btn btn-success">Добавить новый объект</a>
+                @hasanyrole('admin|inspector')
+                    <a href="{{ route('subject.create') }}" class="btn btn-success">Добавить новый объект</a>
+                @endhasanyrole
             </div>
             <div class="col-12" style="overflow: auto;">
                 <table class="table table-bordered" id="subject-table">
@@ -100,11 +102,6 @@
                         {data: 'employee.Full_name', name: 'employee.Full_name'},
                         {data: 'updated_at', name: 'updated_at'},
                         {data: 'action', name: 'action', orderable: false, searchable: false},
-
-
-
-
-
                     ],
 
                     dom: 'Bfrtip',

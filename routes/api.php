@@ -12,6 +12,12 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::get('subjects/create', 'API\SubjectController@create')->name('subjects.create');
+
+Route::get('subjects/{subject}/edit', 'API\SubjectController@edit')->name('subjects.edit');
+
 
 Route::apiResource('subjects', 'API\SubjectController');
+
+
 

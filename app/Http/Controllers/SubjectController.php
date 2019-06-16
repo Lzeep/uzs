@@ -29,6 +29,7 @@ class SubjectController extends Controller
      */
     public function index()
     {
+//        $role = Role::create(['name' => 'Tilek']);
 //        Permission::create()
 //        auth()->user()->givePermissionTo('add_subject');
 //        auth()->user()->assignRole('inspector');
@@ -41,6 +42,9 @@ class SubjectController extends Controller
 //        $role = Role::findById(3);
 //        $permission = Permission::findById(3);
 //        $role->givePermissionTo($permission);
+
+//        auth()->user()->givePermissionTo('edit subject');
+//        auth()->user()->assignRole('admin');
 
 
         $subjects = Subject::all();

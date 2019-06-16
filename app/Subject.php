@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Subject extends Model
 {
     protected $fillable = ['district_id', 'mtu_id', 'type_id','address', 'name', 'owner', 'status_id', 'violation_id', 'result_id',
-        'document', 'employee_id', 'latitude', 'longitude'];
+        'document', 'employee_id', 'latitude', 'longitude', 'fucntionDoc', 'logo', 'sDoc', 'sSub', 'sReal', 'dateRent', 'delPoint', 'deleter'];
     public function images()
     {
         return $this->belongsToMany('App\Image');

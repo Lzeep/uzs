@@ -110,8 +110,8 @@
                             <li><a href="#">История города</a></li>
                             <li><a href="/yandex">Карта города</a></li>
                             <li><a href="#">Контакты</a></li>
-                            @if(Auth::user())
                             <li><a href="{{route('subject.index')}}">Объекты</a></li>
+                            @if(Auth::user())
                             <li><a href="{{route('employee.index')}}">Сотрудники</a></li>
                             @endif
                         </ul>
