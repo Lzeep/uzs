@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Result;
+use function foo\func;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class ResultController extends Controller
 {
@@ -14,9 +16,24 @@ class ResultController extends Controller
      */
     public function index()
     {
-        //
+        $results = Result::all();
+
+        return view('result.index', [
+            'results' => $results,
+        ]);
     }
 
+    public function getResult()
+    {
+        $result = Result::select(['id', 'name']);
+        return DataTables::of($result)
+            ->addColumn('action', function ($result)
+            {
+                return '<a href="'.route('result.show', $result).'"  class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Редактировать</a>';
+            })
+
+            ->make(true);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -24,9 +41,10 @@ class ResultController extends Controller
      */
     public function create()
     {
-        //
+        return view('result.create', [
+            'results' => Result::all(),
+        ]);
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -35,7 +53,9 @@ class ResultController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $result = new Result($request->all());
+        $result->save();
+        return redirect(route('result.index'));
     }
 
     /**
@@ -46,7 +66,9 @@ class ResultController extends Controller
      */
     public function show(Result $result)
     {
-        //
+        return view('result.show', [
+            'result' => $result,
+        ]);
     }
 
     /**
@@ -57,7 +79,10 @@ class ResultController extends Controller
      */
     public function edit(Result $result)
     {
-        //
+
+        return view('result.edit', [
+            'result' => $result,
+        ]);
     }
 
     /**
@@ -69,7 +94,8 @@ class ResultController extends Controller
      */
     public function update(Request $request, Result $result)
     {
-        //
+        $result->update($request->all());
+        return redirect(route('result.index'));
     }
 
     /**
@@ -80,6 +106,7 @@ class ResultController extends Controller
      */
     public function destroy(Result $result)
     {
-        //
+        $result->delete();
+        return redirect()->back();
     }
 }

@@ -50,6 +50,9 @@ Route::resource('employee', 'EmployeeController');
 Route::get('/getsubject', 'SubjectController@getSubjects')->name('datatables.getSubjects');
 Route::resource('subject', 'SubjectController');
 
+Route::get('/getResult', 'ResultController@getresult')->name('datatables.getResult');
+Route::resource('/result', 'ResultController');
+
 Route::get('getEdit', 'SubjectController@getAddEditRemoveColumnData')->name('datatables.getAddEditRemoveColumnData');
 
 Route::get('subject/{id}', 'SubjectController@edit');

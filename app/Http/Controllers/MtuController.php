@@ -14,7 +14,9 @@ class MtuController extends Controller
      */
     public function index()
     {
-        //
+        return view('mtu.index', [
+            'mtu' => Mtu::all(),
+        ]);
     }
 
     /**
@@ -24,7 +26,9 @@ class MtuController extends Controller
      */
     public function create()
     {
-        //
+        return view('mtu.create', [
+            'mtu' => Mtu::all(),
+        ]);
     }
 
     /**
@@ -35,7 +39,9 @@ class MtuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $mtu = new Mtu($request->all());
+        $mtu->save();
+        return redirect(route('mtu.index'));
     }
 
     /**
@@ -46,7 +52,7 @@ class MtuController extends Controller
      */
     public function show(Mtu $mtu)
     {
-        //
+        return view('mtu.show', ['mtu' => $mtu,]);
     }
 
     /**
@@ -57,7 +63,7 @@ class MtuController extends Controller
      */
     public function edit(Mtu $mtu)
     {
-        //
+        return view('mtu.edit', ['mtu' => $mtu,]);
     }
 
     /**
@@ -69,7 +75,8 @@ class MtuController extends Controller
      */
     public function update(Request $request, Mtu $mtu)
     {
-        //
+        $mtu->update($request->all());
+        return redirect(route('mtu.index'));
     }
 
     /**
@@ -80,6 +87,6 @@ class MtuController extends Controller
      */
     public function destroy(Mtu $mtu)
     {
-        //
+//        $mtu->delete()
     }
 }

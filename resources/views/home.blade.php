@@ -1,26 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+@extends('layouts.app')
+@section('content')
+{{--<!DOCTYPE html>--}}
+{{--<html lang="en">--}}
+{{--<head>--}}
+    {{--<meta charset="UTF-8">--}}
+    {{--<meta name="viewport" content="width=device-width, initial-scale=1.0">--}}
+    {{--<meta name="description" content="">--}}
+    {{--<meta name="author" content="">--}}
 
-    <link rel="shortcut icon" href="{{asset('images/favicon_1.ico')}}">
-    <title>УЗС</title>
+    {{--<link rel="shortcut icon" href="{{asset('images/favicon_1.ico')}}">--}}
+    {{--<title>УЗС</title>--}}
 
-    <link href="{{ asset('assets/plugins/owl.carousel/dist/assets/owl.carousel.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('assets/plugins/owl.carousel/dist/assets/owl.theme.default.min.css') }}" rel="stylesheet" type="text/css" />
+    {{--<link href="{{ asset('assets/plugins/owl.carousel/dist/assets/owl.carousel.min.css') }}" rel="stylesheet" type="text/css" />--}}
+    {{--<link href="{{ asset('assets/plugins/owl.carousel/dist/assets/owl.theme.default.min.css') }}" rel="stylesheet" type="text/css" />--}}
 
-    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('assets/css/core.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('assets/css/components.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('assets/css/pages.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="{{ asset('css/main2.css') }}">
+    {{--<link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />--}}
+    {{--<link href="{{ asset('assets/css/core.css') }}" rel="stylesheet" type="text/css" />--}}
+    {{--<link href="{{ asset('assets/css/components.css') }}" rel="stylesheet" type="text/css" />--}}
+    {{--<link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css" />--}}
+    {{--<link href="{{ asset('assets/css/pages.css') }}" rel="stylesheet" type="text/css" />--}}
+    {{--<link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet" type="text/css" />--}}
+    {{--<link rel="stylesheet" href="{{ asset('css/main2.css') }}">--}}
 
-    <script src="{{ asset('assets/js/modernizr.min.js') }}"></script>
+    {{--<script src="{{ asset('assets/js/modernizr.min.js') }}"></script>--}}
 
     <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -29,30 +31,25 @@
     <!--<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>-->
     <![endif]-->
 
-    <script src="assets/js/modernizr.min.js"></script>
-</head>
+
+{{--</head>--}}
     <div class="wrapper">
-        <header>
-            <div class="search">
-                <div class="container">
-                    <div class="pull-left">
-                        <h2>УЗС</h2>
-                        <span>Управление землепользования и строительства мэрии города Бишкек</span>
+        {{--<header>--}}
+            {{--<div class="search">--}}
+                {{--<div class="container">--}}
+                    {{--<div class="pull-left">--}}
+                        {{--<h2>УЗС</h2>--}}
+                        {{--<span>Управление землепользования и строительства мэрии города Бишкек</span>--}}
 
-                    </div>
-                    <div class="pull-right">
+                    {{--</div>--}}
+                    {{--<div class="pull-right">--}}
+                            {{--<a href="{{ route('login') }}">Войти</a>--}}
 
+                                {{--@if (Route::has('register'))--}}
 
+                            {{--<a class="nav-link" href="{{ route('register') }}">{{ __('Регистрация') }}</a>--}}
 
-
-
-                            <a href="{{ route('login') }}">Войти</a>
-
-                                @if (Route::has('register'))
-
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Регистрация') }}</a>
-
-                            @endif
+                            {{--@endif--}}
 
 
                                 {{--<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>--}}
@@ -67,21 +64,16 @@
                                     {{--</a>--}}
 
                                     {{--<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
-
-
-
-                    </div>
-                </div>
-            </div>
-        </header>
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</header>--}}
         <div class="container">
             <header id="home">
                 <div class="header">
-
                     <!-- START carousel-->
                     <div id="carousel-example-captions-1" data-ride="carousel" class="carousel slide position-relative">
                         <div class="backdrop">
-
                         </div>
                         <div role="listbox" class="carousel-inner">
                             <div class="item active">
@@ -107,7 +99,7 @@
                         <ul>
                             <li><a href="#">Новости</a></li>
                             <li><a href="#">Об управлении</a></li>
-                            <li><a href="#">История города</a></li>
+                            <li><a href="{{ route('result.index') }}">Результаты решений</a></li>
                             <li><a href="/yandex">Карта города</a></li>
                             <li><a href="#">Контакты</a></li>
                             <li><a href="{{route('subject.index')}}">Объекты</a></li>
@@ -147,23 +139,25 @@
         </footer>
     </div>
 
-    {{--@push('styles')--}}
-        {{--<link rel="shortcut icon" href="{{asset('images/favicon_1.ico')}}">--}}
-        {{--<link href="{{ asset('assets/plugins/owl.carousel/dist/assets/owl.carousel.min.css') }}" rel="stylesheet" type="text/css" />--}}
-        {{--<link href="{{ asset('assets/plugins/owl.carousel/dist/assets/owl.theme.default.min.css') }}" rel="stylesheet" type="text/css" />--}}
+    @push('styles')
+            <link rel="shortcut icon" href="{{asset('images/favicon_1.ico')}}">
+            <title>УЗС</title>
 
-        {{--<link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />--}}
-        {{--<link href="{{ asset('assets/css/core.css') }}" rel="stylesheet" type="text/css" />--}}
-        {{--<link href="{{ asset('assets/css/components.css') }}" rel="stylesheet" type="text/css" />--}}
-        {{--<link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css" />--}}
-        {{--<link href="{{ asset('assets/css/pages.css') }}" rel="stylesheet" type="text/css" />--}}
-        {{--<link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet" type="text/css" />--}}
-        {{--<link rel="stylesheet" href="{{ asset('css/main2.css') }}">--}}
+            <link href="{{ asset('assets/plugins/owl.carousel/dist/assets/owl.carousel.min.css') }}" rel="stylesheet" type="text/css" />
+            <link href="{{ asset('assets/plugins/owl.carousel/dist/assets/owl.theme.default.min.css') }}" rel="stylesheet" type="text/css" />
 
-        {{--<script src="{{ asset('assets/js/modernizr.min.js') }}"></script>--}}
-    {{--@endpush--}}
+            <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+            <link href="{{ asset('assets/css/core.css') }}" rel="stylesheet" type="text/css" />
+            <link href="{{ asset('assets/css/components.css') }}" rel="stylesheet" type="text/css" />
+            <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css" />
+            <link href="{{ asset('assets/css/pages.css') }}" rel="stylesheet" type="text/css" />
+            <link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet" type="text/css" />
+            <link rel="stylesheet" href="{{ asset('css/main2.css') }}">
 
-       {{--@push('scripts')--}}
+            <script src="{{ asset('assets/js/modernizr.min.js') }}"></script>
+    @endpush
+
+       @push('scripts')
            <script>
                var resizefunc = [];
            </script>
@@ -179,7 +173,7 @@
            <script src="{{ asset('assets/js/wow.min.js') }}"></script>
            <script src="{{ asset('assets/js/jquery.nicescroll.js') }}"></script>
            <script src="{{ asset('assets/js/jquery.scrollTo.min.js') }}"></script>
-
+            <script src="assets/js/modernizr.min.js"></script>
            <script src="{{ asset('assets/plugins/peity/jquery.peity.min.js') }}"></script>
 
            <script src="{{ asset('assets/js/jquery.core.js') }}"></script>
@@ -195,7 +189,7 @@
             });
         </script>
 
-               </body>
-               </html>
-       {{--@endpush--}}
-{{--@endsection--}}
+               {{--</body>--}}
+               {{--</html>--}}
+       @endpush
+@endsection
