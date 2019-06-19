@@ -9,6 +9,7 @@ use App\Mtu;
 use App\Result;
 use App\Subject;
 use App\Type;
+use App\User;
 use App\Violation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -36,6 +37,7 @@ class SubjectController extends Controller
         $violations = Violation::all('id', 'name');
         $results = Result::all('id', 'name');
         $employees = Employee::all('id', 'Full_name');
+        $users = User::all('id', 'name', 'admin', 'email');
 
         return response()->json([
             'districts' => $districts,
@@ -45,6 +47,7 @@ class SubjectController extends Controller
             'violations' => $violations,
             'results' => $results,
             'employees' => $employees,
+            'users' => $users,
         ]);
     }
     /**
@@ -116,6 +119,7 @@ class SubjectController extends Controller
             $violations = Violation::all('id', 'name');
             $results = Result::all('id', 'name');
             $employees = Employee::all('id', 'Full_name');
+            $users = User::all('id', 'name', 'admin', 'email');
 
             return response()->json([
                 'districts' => $districts,
@@ -125,6 +129,7 @@ class SubjectController extends Controller
                 'violations' => $violations,
                 'results' => $results,
                 'employees' => $employees,
+                'users' => $users,
             ], 200);
         }
         else{
