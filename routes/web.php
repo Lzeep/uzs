@@ -53,6 +53,9 @@ Route::resource('subject', 'SubjectController');
 Route::get('/getResult', 'ResultController@getresult')->name('datatables.getResult');
 Route::resource('/result', 'ResultController');
 
+Route::get('/getMtu', 'MtuController@getMtu')->name('datatables.getMtu');
+Route::resource('/mtu', 'MtuController');
+
 Route::get('getEdit', 'SubjectController@getAddEditRemoveColumnData')->name('datatables.getAddEditRemoveColumnData');
 
 Route::get('subject/{id}', 'SubjectController@edit');

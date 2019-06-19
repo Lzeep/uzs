@@ -33,6 +33,15 @@
                             @endforeach
                         </select>
                     </div>
+                    <div class="'form-group">
+                        <label>Функциональное назначение</label>
+                        <select class="form-control" name="fucntionDoc" id="fucntionDoc">
+                            @foreach($types as $type)
+                                <option value="{{$type->id}}">{{ $type->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
                     <div class="form-group">
                         <label>Адрес</label>
                         <input type="text" class="form-control" name="address">
@@ -58,6 +67,15 @@
                             @endforeach
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label>Площадь объекта по документам</label>
+                        <input type="text" class="form-control" name="sDoc">
+                    </div>
+                    <div class="form-group">
+                        <label>Реальная площадь объекта</label>
+                        <input type="text" class="form-control" name="sReal">
+                    </div>
+                    
                     <div class="form-group">
                         <label>Нарушения</label>
                         <select class="form-control" name="violation_id">

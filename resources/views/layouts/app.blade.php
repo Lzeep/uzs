@@ -87,7 +87,7 @@
                             <a class="nav-link" href="#">Новости</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Об управлении</a>
+                            <a class="nav-link" href="{{route('mtu.index')}}">МТУ</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">История города</a>

@@ -19,5 +19,7 @@ Route::get('subjects/{subject}/edit', 'API\SubjectController@edit')->name('subje
 
 Route::apiResource('subjects', 'API\SubjectController');
 
+Route::apiResource('mtu', 'API\MtuController');
+
 
 

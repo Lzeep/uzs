@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\District;
 use App\Mtu;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class MtuController extends Controller
 {
@@ -19,6 +21,17 @@ class MtuController extends Controller
         ]);
     }
 
+    public function getMtu()
+    {
+        $mtu = Mtu::select(['id', 'name']);
+        return DataTables::of($mtu)
+            ->addColumn('action', function ($result)
+            {
+                return '<a href="'.route('mtu.show', $result).'"  class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Подробнее</a>';
+            })
+
+            ->make(true);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -26,11 +39,12 @@ class MtuController extends Controller
      */
     public function create()
     {
+        $districts = District::all();
         return view('mtu.create', [
             'mtu' => Mtu::all(),
+            'districts' => $districts,
         ]);
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -87,6 +101,7 @@ class MtuController extends Controller
      */
     public function destroy(Mtu $mtu)
     {
-//        $mtu->delete()
+        $mtu->delete();
+        return redirect()->back();
     }
 }

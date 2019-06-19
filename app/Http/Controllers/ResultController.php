@@ -107,6 +107,6 @@ class ResultController extends Controller
     public function destroy(Result $result)
     {
         $result->delete();
-        return redirect()->back();
+        return redirect(route('result.index'));
     }
 }

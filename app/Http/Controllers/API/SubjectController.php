@@ -156,7 +156,7 @@ class SubjectController extends Controller
                 'mtu_id' => 'required|integer',
                 'type_id' => 'required|integer',
                 'fucntionDoc' => 'required|integer',
-                'address' => 'required|string:200',
+//                'address' => 'required|string:200',
                 'name' => 'required|string:100',
                 'owner' => 'required|string:100',
                 'status_id' => 'required|integer',
@@ -166,12 +166,12 @@ class SubjectController extends Controller
                 'violation_id' => 'required|integer',
                 'result_id' => 'required|integer',
                 'document' =>'required|string:200',
-                'dateRent' => 'required|date_format:Y-m-d',
+                'dateRent' => 'date_format:Y-m-d',
                 'employee_id' => 'required|integer',
-                'latitude' => 'required|string:100',
-                'longitude' => 'required|string:100',
-                'delPoint' => 'required|string:100',
-                'deleter' => 'required|integer',
+//                'latitude' => 'required|string:100',
+//                'longitude' => 'required|string:100',
+                'delPoint' => 'string:100',
+                'deleter' => 'integer',
             ]);
             if($validation->fails())
             {
