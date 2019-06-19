@@ -30,8 +30,9 @@ class Subject extends Model
 
     public function  employee()
     {
-        return $this->belongsTo('App\Employee', 'employee_id');
+        return $this->belongsTo('App\User', 'employee_id');
     }
+
     public function mtu()
     {
         return $this->belongsTo('App\Mtu', 'mtu_id');
@@ -39,6 +40,10 @@ class Subject extends Model
     public function type()
     {
         return $this->belongsTo('App\Type', 'type_id');
+    }
+    public function func()
+    {
+        return $this->belongsTo('App\Type', 'fucntionDoc');
     }
 
     public function district()

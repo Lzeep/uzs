@@ -78,7 +78,7 @@ class SubjectController extends Controller
         return view('subject.create', [
             'subjects'=>$subjects,
             'statuses' => $statuses,
-            'employees' => $employees,
+            'users' => User::all(),
             'violations' => $violations,
             'results' => $results,
             'districts' => District::all(),

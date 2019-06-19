@@ -75,7 +75,7 @@
                         <label>Реальная площадь объекта</label>
                         <input type="text" class="form-control" name="sReal">
                     </div>
-                    
+
                     <div class="form-group">
                         <label>Нарушения</label>
                         <select class="form-control" name="violation_id">
@@ -100,8 +100,8 @@
                     <div class="form-group">
                         <label>Сотрудник</label>
                         <select class="form-control" name="employee_id">
-                            @foreach($employees as $employee)
-                                <option value="{{ $employee->id }}">{{$employee->Full_name}}</option>
+                            @foreach($users as $user)
+                                <option value="{{ $user->id }}">{{$user->name}}</option>
                             @endforeach
                         </select>
                     </div>

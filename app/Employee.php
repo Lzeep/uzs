@@ -16,10 +16,7 @@ class Employee extends Model
         return $this->belongsTo('App\Position');
     }
 
-    public function subject()
-    {
-        return $this->hasMany('App\Subject');
-    }
+
     public function district()
     {
         return $this->belongsTo('App\District');

@@ -72,6 +72,12 @@
                             </div>
                         </div>
                         <div class="mb-5">
+                            <p class="text-dark font-weight-bold h4">Функциональное назначение</p>
+                            <div>
+                                <span class="text-secondary">{{ $subject->func->name }}</span>
+                            </div>
+                        </div>
+                        <div class="mb-5">
                             <p class="text-dark font-weight-bold h4">Адрес объекта</p>
                             <div>
                                 <span class="text-secondary">{{ $subject->address }}</span>
@@ -95,6 +101,24 @@
                             <p class="text-dark font-weight-bold h4">Статус объекта</p>
                             <div>
                                 <span class="text-secondary">{{ $subject->status->name }}</span>
+                            </div>
+                        </div>
+                        <div class="mb-5">
+                            <p class="text-dark font-weight-bold h4">Площадь по документам</p>
+                            <div>
+                                <span class="text-secondary">{{ $subject->sDoc }}</span>
+                            </div>
+                        </div>
+                        <div class="mb-5">
+                            <p class="text-dark font-weight-bold h4">Реальная площадь</p>
+                            <div>
+                                <span class="text-secondary">{{ $subject->sReal }}</span>
+                            </div>
+                        </div>
+                        <div class="mb-5">
+                            <p class="text-dark font-weight-bold h4">Разница</p>
+                            <div>
+                                <span class="text-secondary">{{ $subject->sDoc - $subject->sReal }}</span>
                             </div>
                         </div>
                         <div class="mb-5">
