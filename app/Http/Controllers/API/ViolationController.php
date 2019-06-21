@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Mtu;
-use App\Violation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
-class MtuController extends Controller
+class ViolationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +15,7 @@ class MtuController extends Controller
      */
     public function index()
     {
-        return response()->json(['mtu' => Mtu::all()]);
+        return response()->json(['violation' => Violation::all()]);
     }
 
     /**
@@ -30,7 +28,6 @@ class MtuController extends Controller
     {
         $validation = Validator::make($request->all(), [
             'name' => 'required|string:200',
-            'district_id' => 'integer',
         ]);
         if($validation->fails())
         {
@@ -38,7 +35,7 @@ class MtuController extends Controller
         }
         else
         {
-            return response()->json(['status' => 'success', 'subject' => Mtu::create($validation->validated())], 200);
+            return response()->json(['status' => 'success', 'violation' => Violation::create($validation->validated())], 200);
         }
     }
 
@@ -50,7 +47,7 @@ class MtuController extends Controller
      */
     public function show($id)
     {
-        return response()->json(['mtu' => Mtu::find($id)]);
+        return response()->json(['violation' => Violation::find($id)]);
     }
 
     /**
@@ -62,9 +59,9 @@ class MtuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $mtu = Mtu::where('id', $id)->get();
+        $violation = Violation::where('id', $id)->get();
 
-        if($mtu->toArray())
+        if($violation->toArray())
         {
             $validation = Validator::make($request->all(), [
                 'name' => 'required|string:200',
@@ -77,8 +74,8 @@ class MtuController extends Controller
             }
             else
             {
-                Mtu::where('id', $id)->update($validation->validated());
-                return response()->json(['status' => 'success', 'mtu' => Mtu::where('id', $id)->get()], 200);
+                Violation::where('id', $id)->update($validation->validated());
+                return response()->json(['status' => 'success', 'violation' => Violation::where('id', $id)->get()], 200);
             }
         }
         else{

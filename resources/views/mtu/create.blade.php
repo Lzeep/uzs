@@ -12,9 +12,9 @@
                 </div>
                 <div class="'form-group">
                     <label>Район</label>
-                    <select class="form-control" name="district_id">
+                    <select class="form-control" name="district_id" id="district">
                         @foreach($districts as $district)
-                            <option value="{{$district->id}}">{{ $district->name }}</option>
+                            <option value="{{ $district->id }}">{{ $district->name }}</option>
                         @endforeach
                     </select>
                 </div>

@@ -23,11 +23,11 @@ class MtuController extends Controller
 
     public function getMtu()
     {
-        $mtu = Mtu::select(['id', 'name']);
+        $mtu = Mtu::with('district')->select('*');
         return DataTables::of($mtu)
-            ->addColumn('action', function ($result)
+            ->addColumn('action', function ($mtu)
             {
-                return '<a href="'.route('mtu.show', $result).'"  class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Подробнее</a>';
+                return '<a href="'.route('mtu.show', $mtu).'"  class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Подробнее</a>';
             })
 
             ->make(true);

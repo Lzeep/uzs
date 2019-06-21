@@ -6,7 +6,7 @@
             <div class="row justify-content-xl-between">
                 <input type="hidden">
                 {{--@hasanyrole('admin|inspector')--}}
-                <a href="{{ route('mtu.create') }}" class="btn btn-success">Добавить новый МТУ</a>
+                <a href="{{ route('violation.create') }}" class="btn btn-success">Добавить новое нарушение</a>
                 {{--@endhasanyrole--}}
             </div>
             <div class="col-12" style="overflow: auto;">
@@ -14,17 +14,17 @@
                     <thead>
                     <tr>
                         <th style="width: 1%">#</th>
-                        <th>МТУ</th>
+                        <th>Нарушения</th>
                         <th>Действия</th>
-                        <th>Район</th>
+
 
                     </tr>
                     <tfoot>
                     <tr>
                         <th>#</th>
-                        <th>МТУ</th>
+                        <th>Нарушения</th>
                         <th>Действия</th>
-                        <th>Район</th>
+
                     </tr>
                     </tfoot>
                 </table>
@@ -54,11 +54,10 @@
             var table = $('#result-table').DataTable({
                     processing: true,
                     serverSide: true,
-                    ajax: '{!! route('datatables.getMtu') !!}',
+                    ajax: '{!! route('datatables.getViolation') !!}',
                     columns: [
                         {data: 'id', name: 'id'},
                         {data: 'name', name: 'name'},
-                        {data: 'district.name', name: 'district.name'},
                         {data: 'action', name: 'action', orderable: false, searchable: false},
 
                     ],

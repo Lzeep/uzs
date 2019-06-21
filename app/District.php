@@ -10,4 +10,9 @@ class District extends Model
     {
         return $this->hasMany('App\Subject');
     }
+    public function Mtu()
+    {
+        return $this->hasMany('App\Subject');
+    }
+
 }

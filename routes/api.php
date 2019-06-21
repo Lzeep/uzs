@@ -21,5 +21,13 @@ Route::apiResource('subjects', 'API\SubjectController');
 
 Route::apiResource('mtu', 'API\MtuController');
 
+Route::apiResource('violation', 'API\ViolationController');
+
+Route::apiResource('result', 'API\ResultController');
+
+Route::apiResource('type', 'API\TypeController');
+
+
+
 
 

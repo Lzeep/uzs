@@ -14,7 +14,21 @@ class ViolationController extends Controller
      */
     public function index()
     {
-        //
+        return view('violation', [
+            'violation' => Violation::all()
+        ]);
+    }
+
+    public function getViolation()
+    {
+        $violation = Violation::select('*');
+        return DataTables::of($violation)
+            ->addColumn('action', function ($violation)
+            {
+                return '<a href="'.route('violation.show', $violation).'"  class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Подробнее</a>';
+            })
+
+            ->make(true);
     }
 
     /**
@@ -24,7 +38,9 @@ class ViolationController extends Controller
      */
     public function create()
     {
-        //
+        return view('violation', [
+            'violation' => Violation::all(),
+        ]);
     }
 
     /**
@@ -35,7 +51,9 @@ class ViolationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $violation = new Violation($request->all());
+        $violation->save();
+        return redirect(route('violation.index'));
     }
 
     /**
@@ -46,7 +64,9 @@ class ViolationController extends Controller
      */
     public function show(Violation $violation)
     {
-        //
+        return view('violation', [
+            'violation' => $violation,
+        ]);
     }
 
     /**
@@ -57,7 +77,7 @@ class ViolationController extends Controller
      */
     public function edit(Violation $violation)
     {
-        //
+        return view('violation', ['violation' => $violation,]);
     }
 
     /**
@@ -69,7 +89,8 @@ class ViolationController extends Controller
      */
     public function update(Request $request, Violation $violation)
     {
-        //
+        $violation->update($request->all());
+       return redirect(route('violation.index'));
     }
 
     /**
@@ -80,6 +101,7 @@ class ViolationController extends Controller
      */
     public function destroy(Violation $violation)
     {
-        //
+        $violation->delete();
+        return redirect(route('violation.index'));
     }
 }

@@ -84,7 +84,7 @@
                     <ul class="navbar-nav ml-auto">
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Новости</a>
+                            <a class="nav-link" href="{{ route('violation.index') }}}">Науршения</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('mtu.index')}}">МТУ</a>
