@@ -10,22 +10,19 @@
                 {{--@endhasanyrole--}}
             </div>
             <div class="col-12" style="overflow: auto;">
-                <table class="table table-bordered" id="result-table">
+                <table class="table table-bordered" id="violation-table">
                     <thead>
                     <tr>
                         <th style="width: 1%">#</th>
                         <th>Нарушения</th>
                         <th>Действия</th>
-
-
                     </tr>
                     <tfoot>
-                    <tr>
-                        <th>#</th>
-                        <th>Нарушения</th>
-                        <th>Действия</th>
-
-                    </tr>
+                        <tr>
+                            <th>#</th>
+                            <th>Нарушения</th>
+                            <th>Действия</th>
+                        </tr>
                     </tfoot>
                 </table>
             </div>
@@ -51,7 +48,7 @@
     <script src="{{asset("js/lightbox.min.js")}}"></script>
     <script>
         $(function() {
-            var table = $('#result-table').DataTable({
+            var table = $('#violation-table').DataTable({
                     processing: true,
                     serverSide: true,
                     ajax: '{!! route('datatables.getViolation') !!}',
@@ -75,7 +72,7 @@
                     }
                 }
             );
-            $('#result-table tfoot th').each( function () {
+            $('#violation-table tfoot th').each( function () {
                 var title = $(this).text();
                 $(this).html( '<input type="text" placeholder="Поиск по '+title+'" />' );
             } );
@@ -91,9 +88,9 @@
             } );
         });
         $(document).ready(function() {
-            var table = $('#result-table').DataTable();
+            var table = $('#violation-table').DataTable();
 
-            $('#result-table tbody').on( 'click', 'tr', function () {
+            $('#violation-table tbody').on( 'click', 'tr', function () {
                 if ( $(this).hasClass('selected') ) {
                     $(this).removeClass('selected');
                 }

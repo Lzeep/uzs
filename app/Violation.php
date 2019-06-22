@@ -6,10 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Violation extends Model
 {
-//    public function TObject()
-//    {
-//        return $this->hasMany('App\TObject');
-//    }
+
+    protected $fillable = ['id', 'name'];
     public function subject()
     {
         return $this->hasMany('App\Subject');

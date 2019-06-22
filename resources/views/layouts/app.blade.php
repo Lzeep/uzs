@@ -84,7 +84,7 @@
                     <ul class="navbar-nav ml-auto">
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('violation.index') }}}">Науршения</a>
+                            <a class="nav-link" href="{{route('violation.index')}}">Нарушения</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('mtu.index')}}">МТУ</a>
@@ -98,14 +98,14 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Контакты</a>
                         </li>
-                        @if(Auth::user())
+                        {{--@if(Auth::user())--}}
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('subject.index')}}">Объекты</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('employee.index')}}">Сотрудники</a>
                         </li>
-                        @endif
+                        {{--@endif--}}
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">

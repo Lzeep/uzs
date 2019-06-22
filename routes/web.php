@@ -37,7 +37,7 @@ Route::get('/app', function (){
 //    'index', 'create', 'store', 'edit'
 //]);
 
-
+Route::get('/vila', 'ViolationController@index');
 
 //Route::get('/search', 'TobjectController@search');
 
@@ -53,11 +53,13 @@ Route::resource('subject', 'SubjectController');
 Route::get('/getResult', 'ResultController@getresult')->name('datatables.getResult');
 Route::resource('/result', 'ResultController');
 
+Route::get('/getViolation', 'ViolationController@getViolation')->name('datatables.getViolation');
+Route::resource('violation', 'ViolationController');
+
 Route::get('/getMtu', 'MtuController@getMtu')->name('datatables.getMtu');
 Route::resource('/mtu', 'MtuController');
 
-Route::get('/getViolation', 'ViolationController@getViolation')->name('datatables.getViolation');
-Route::resource('/violation', 'ViolationController');
+
 
 
 Route::get('getEdit', 'SubjectController@getAddEditRemoveColumnData')->name('datatables.getAddEditRemoveColumnData');

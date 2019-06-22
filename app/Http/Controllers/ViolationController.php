@@ -14,14 +14,16 @@ class ViolationController extends Controller
      */
     public function index()
     {
-        return view('violation', [
-            'violation' => Violation::all()
+        $violation = Violation::all();
+//        dd($violation);
+        return view('violation.index', [
+            'violation' => $violation,
         ]);
     }
 
     public function getViolation()
     {
-        $violation = Violation::select('*');
+        $violation = Violation::select(['id', 'name']);
         return DataTables::of($violation)
             ->addColumn('action', function ($violation)
             {
@@ -38,7 +40,7 @@ class ViolationController extends Controller
      */
     public function create()
     {
-        return view('violation', [
+        return view('violation.create', [
             'violation' => Violation::all(),
         ]);
     }

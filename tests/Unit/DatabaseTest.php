@@ -13,10 +13,10 @@ class DatabaseTest extends TestCase
      *
      * @return void
      */
-    public function testExample()
-    {
-        $this->assertDatabaseHas('subjects', [
-            'name' => "Столовая вагон",
-        ]);
-    }
+//    public function testExample()
+//    {
+//        $this->assertDatabaseHas('subjects', [
+//            'name' => "Столовая вагон",
+//        ]);
+//    }
 }
