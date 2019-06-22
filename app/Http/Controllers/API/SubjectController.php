@@ -36,8 +36,8 @@ class SubjectController extends Controller
         $statuses = Land::all('id', 'name');
         $violations = Violation::all('id', 'name');
         $results = Result::all('id', 'name');
-        $employees = Employee::all('id', 'Full_name');
-        $users = User::all('id', 'name', 'admin', 'email');
+
+        $users = User::all('id', 'name', 'admin', 'email', 'pass');
 
         return response()->json([
             'districts' => $districts,
@@ -46,7 +46,6 @@ class SubjectController extends Controller
             'statuses' => $statuses,
             'violations' => $violations,
             'results' => $results,
-            'employees' => $employees,
             'users' => $users,
         ]);
     }
