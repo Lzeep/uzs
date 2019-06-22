@@ -29,7 +29,7 @@ class ResultController extends Controller
         return DataTables::of($result)
             ->addColumn('action', function ($result)
             {
-                return '<a href="'.route('result.show', $result).'"  class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Редактировать</a>';
+                return '<a href="'.route('result.show', $result).'"  class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Подробнее</a>';
             })
 
             ->make(true);

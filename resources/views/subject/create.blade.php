@@ -69,13 +69,12 @@
                     </div>
                     <div class="form-group">
                         <label>Площадь объекта по документам</label>
-                        <input type="text" class="form-control" name="sDoc">
+                        <input id="a" type="text" class="form-control" name="sDoc">
                     </div>
                     <div class="form-group">
                         <label>Реальная площадь объекта</label>
-                        <input type="text" class="form-control" name="sReal">
+                        <input id="b" type="text" class="form-control" name="sReal">
                     </div>
-                    
 
                     <div class="form-group">
                         <label>Нарушения</label>
@@ -125,13 +124,15 @@
                         </div>
 
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" onclick="addition();">Submit</button>
+
                 </form>
             </div>
         </div>
     @endsection
 
     @push('scripts')
+
         <script>
             ymaps.ready(init);
             function init() {

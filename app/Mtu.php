@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mtu extends Model
 {
-    protected $fillable = ['id', 'name'];
+    protected $fillable = ['id', 'name', 'district_id'];
     public function subject()
     {
         return $this->hasMany('App\Subject');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Violation;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class ViolationController extends Controller
 {
@@ -28,9 +29,7 @@ class ViolationController extends Controller
             ->addColumn('action', function ($violation)
             {
                 return '<a href="'.route('violation.show', $violation).'"  class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Подробнее</a>';
-            })
-
-            ->make(true);
+            })->make(true);
     }
 
     /**
@@ -66,7 +65,7 @@ class ViolationController extends Controller
      */
     public function show(Violation $violation)
     {
-        return view('violation', [
+        return view('violation.show', [
             'violation' => $violation,
         ]);
     }
@@ -79,7 +78,7 @@ class ViolationController extends Controller
      */
     public function edit(Violation $violation)
     {
-        return view('violation', ['violation' => $violation,]);
+        return view('violation.edit', ['violation' => $violation,]);
     }
 
     /**
@@ -94,7 +93,6 @@ class ViolationController extends Controller
         $violation->update($request->all());
        return redirect(route('violation.index'));
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -104,6 +102,6 @@ class ViolationController extends Controller
     public function destroy(Violation $violation)
     {
         $violation->delete();
-        return redirect(route('violation.index'));
+        return redirect(route('violation.index'), $violation);
     }
 }

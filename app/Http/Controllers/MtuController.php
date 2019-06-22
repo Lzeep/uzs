@@ -77,7 +77,7 @@ class MtuController extends Controller
      */
     public function edit(Mtu $mtu)
     {
-        return view('mtu.edit', ['mtu' => $mtu,]);
+        return view('mtu.edit', ['mtu' => $mtu, 'districts' => District::all()]);
     }
 
     /**

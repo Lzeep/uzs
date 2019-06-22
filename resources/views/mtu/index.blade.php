@@ -15,16 +15,16 @@
                     <tr>
                         <th style="width: 1%">#</th>
                         <th>МТУ</th>
-                        <th>Действия</th>
                         <th>Район</th>
+                        <th>Действия</th>
 
                     </tr>
                     <tfoot>
                     <tr>
                         <th>#</th>
                         <th>МТУ</th>
-                        <th>Действия</th>
                         <th>Район</th>
+                        <th>Действия</th>
                     </tr>
                     </tfoot>
                 </table>

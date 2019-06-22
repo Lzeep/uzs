@@ -37,7 +37,7 @@ Route::get('/app', function (){
 //    'index', 'create', 'store', 'edit'
 //]);
 
-Route::get('/vila', 'ViolationController@index');
+//Route::get('/vila', 'ViolationController@index');
 
 //Route::get('/search', 'TobjectController@search');
 

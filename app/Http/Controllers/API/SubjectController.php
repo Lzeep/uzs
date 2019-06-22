@@ -69,7 +69,6 @@ class SubjectController extends Controller
             'owner' => 'required|string:100',
             'status_id' => 'required|integer',
             'sDoc' => 'required|integer',
-            'sSub' => 'required|integer',
             'sReal' => 'required|integer',
             'violation_id' => 'required|integer',
             'result_id' => 'required|integer',
@@ -166,7 +165,7 @@ class SubjectController extends Controller
                 'owner' => 'required|string:100',
                 'status_id' => 'required|integer',
                 'sDoc' => 'required|integer',
-                'sSub' => 'required|integer',
+
                 'sReal' => 'required|integer',
                 'violation_id' => 'required|integer',
                 'result_id' => 'required|integer',
