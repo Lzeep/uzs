@@ -75,12 +75,7 @@
                         <label>Реальная площадь объекта</label>
                         <input type="text" class="form-control" name="sReal">
                     </div>
-                    <div class="form-group">
-                        <label>Реальная площадь объекта</label>
-
-                            <span class="text-secondary">{{ $subject->sDoc - $subject->sReal }}</span>
-                        
-                    </div>
+                    
 
                     <div class="form-group">
                         <label>Нарушения</label>
