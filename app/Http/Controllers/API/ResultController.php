@@ -66,7 +66,6 @@ class ResultController extends Controller
         {
             $validation = Validator::make($request->all(), [
                 'name' => 'required|string:200',
-                'district_id' => 'integer',
             ]);
 
             if($validation->fails())
@@ -80,7 +79,7 @@ class ResultController extends Controller
             }
         }
         else{
-            return response()->json(['status' => 'error', 'message' => 'МТУ не найден'], 404);
+            return response()->json(['status' => 'error', 'message' => 'Решение не найдена'], 404);
         }
     }
 
