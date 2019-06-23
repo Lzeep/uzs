@@ -5,8 +5,15 @@
         <div class="card col-md-12">
             <div class="front"><h3> {{ $mtu->name }}</h3></div>
             <div class="back">
-                <a class="btn btn-success mr-4" href="{{ route('mtu.edit', $mtu) }}">Редактировать</a>
-                <a class="btn btn-outline-danger mr-4" href="{{ route('mtu.destroy', $mtu) }}">Удалить</a>
+                @if(Auth::user())
+                    @role('guide|admin')
+                        <a class="btn btn-success mr-4" href="{{ route('mtu.edit', $mtu) }}">Редактировать</a>
+                    @endrole
+
+                    @role('admin')
+                        <a class="btn btn-outline-danger mr-4" href="{{ route('mtu.destroy', $mtu) }}">Удалить</a>
+                    @endrole
+                @endif
             </div>
         </div>
     </div>

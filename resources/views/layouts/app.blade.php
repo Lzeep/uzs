@@ -90,22 +90,21 @@
                             <a class="nav-link" href="{{route('mtu.index')}}">МТУ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">История города</a>
+                            <a class="nav-link" href="{{ route('result.index') }}">Решения</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/yandex">Карта города</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Контакты</a>
-                        </li>
-                        {{--@if(Auth::user())--}}
+                        @if(Auth::user())
+                            <li class="nav-item">
+                                <a class="nav-link" href="/yandex">Карта города</a>
+                            </li>
+                        @endif
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('subject.index')}}">Объекты</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('employee.index')}}">Сотрудники</a>
-                        </li>
-                        {{--@endif--}}
+                        @if(Auth::user())
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('employee.index')}}">Сотрудники</a>
+                            </li>
+                        @endif
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">

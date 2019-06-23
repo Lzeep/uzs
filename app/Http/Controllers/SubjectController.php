@@ -43,9 +43,14 @@ class SubjectController extends Controller
 //        $permission = Permission::findById(3);
 //        $role->givePermissionTo($permission);
 
-//        auth()->user()->givePermissionTo('edit subject');
-//        auth()->user()->assignRole('admin');
 
+//        auth()->user()->givePermissionTo('add_subject', 'add result', 'add type', 'add mtu');
+//        auth()->user()->assignRole('guide');
+//        $permission = Permission::create(['name' => 'delete mtu']);
+
+        $role = Role::findById(4);
+        $permission = Permission::findById(11);
+        $role->givePermissionTo($permission);
 
         $subjects = Subject::all();
 

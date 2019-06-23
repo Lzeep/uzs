@@ -4,15 +4,22 @@
     <div class="container-fluid py-5">
         <div class="row pb-5">
             <div class="col-auto">
+                @if(Auth::user())
                 <p class="font-weight-bold h4 text-dark">Действия: </p>
             </div>
             <div class="col-auto">
-                @role('inspector')
-                <button class="open_fast">Заметка</button>
-                @else
-                    <a class="btn btn-success mr-4" href="{{ route('subject.edit', $subject) }}">Редактировать</a>
-                    <a class="btn btn-outline-danger mr-4" href="{{ route('subject.destroy', $subject) }}">Удалить</a>
-                @endrole
+
+                    @role('inspector')
+                    <button class="open_fast">Заметка</button>
+                    @else
+                        @role('guide|admin')
+                            <a class="btn btn-success mr-4" href="{{ route('subject.edit', $subject) }}">Редактировать</a>
+                        @endrole
+                        @role('admin')
+                            <a class="btn btn-outline-danger mr-4" href="{{ route('subject.destroy', $subject) }}">Удалить</a>
+                        @endrole
+                    @endrole
+                    @endif
             </div>
         </div>
         <div class="row pt-15">

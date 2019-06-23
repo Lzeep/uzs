@@ -5,8 +5,16 @@
         <div class="card col-md-12">
             <div class="front"><h3> {{ $violation->name }}</h3></div>
             <div class="back">
+                @if(Auth::user())
+                    @role('guide|admin')
                 <a class="btn btn-success mr-4" href="{{ route('violation.edit', $violation) }}">Редактировать</a>
+
+                    @endrole
+
+                    @role('admin')
                 <a class="btn btn-outline-danger mr-4" href="{{ route('violation.destroy', $violation) }}">Удалить</a>
+                    @endrole
+                    @endif
             </div>
         </div>
     </div>

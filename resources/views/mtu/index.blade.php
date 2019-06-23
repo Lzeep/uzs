@@ -5,9 +5,9 @@
         <div class="row">
             <div class="row justify-content-xl-between">
                 <input type="hidden">
-                {{--@hasanyrole('admin|inspector')--}}
-                <a href="{{ route('mtu.create') }}" class="btn btn-success">Добавить новый МТУ</a>
-                {{--@endhasanyrole--}}
+                @hasanyrole('admin|inspector')
+                    <a href="{{ route('mtu.create') }}" class="btn btn-success">Добавить новый МТУ</a>
+                @endhasanyrole
             </div>
             <div class="col-12" style="overflow: auto;">
                 <table class="table table-bordered" id="result-table">

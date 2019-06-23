@@ -13,17 +13,19 @@
 
 //Route::get('api/objects', 'TObjectsController@index');
 
-Route::get('/', function () {
-    return view('front');
-});
+
+
+//Route::get('/', function () {
+//    return view('front');
+//});
 
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/qq', function(){
-    return view('welcome');
-});
+//Route::get('/qq', function(){
+//    return view('welcome');
+//});
 
 Route::get('/', function(){
     return view('home');

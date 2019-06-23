@@ -5,9 +5,9 @@
         <div class="row">
             <div class="row justify-content-xl-between">
                 <input type="hidden">
-                {{--@hasanyrole('admin|inspector')--}}
-                <a href="{{ route('violation.create') }}" class="btn btn-success">Добавить новое нарушение</a>
-                {{--@endhasanyrole--}}
+                @hasanyrole('admin|inspector')
+                    <a href="{{ route('violation.create') }}" class="btn btn-success">Добавить новое нарушение</a>
+                @endhasanyrole
             </div>
             <div class="col-12" style="overflow: auto;">
                 <table class="table table-bordered" id="violation-table">
