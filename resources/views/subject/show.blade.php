@@ -10,7 +10,7 @@
             <div class="col-auto">
 
                     @role('inspector')
-                    <button class="open_fast">Заметка</button>
+                <a class="btn btn-danger mr-4" href="/subject/{id}/mark">Заметка</a>
                     @else
                         @role('guide|admin')
                             <a class="btn btn-success mr-4" href="{{ route('subject.edit', $subject) }}">Редактировать</a>
@@ -100,6 +100,7 @@
                                 <span class="text-secondary">{{ $subject->name }}</span>
                             </div>
                         </div>
+
                     </div>
                     <div class="col-6">
                         <div class="mb-5">

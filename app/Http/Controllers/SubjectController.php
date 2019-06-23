@@ -153,6 +153,11 @@ class SubjectController extends Controller
             'types' => Type::all(),
         ]);
     }
+    public function mark(Subject $subject){
+        return view('subject.mark', [
+            'subject' => $subject,
+        ]);
+    }
     /**
      * Update the specified resource in storage.
      *
