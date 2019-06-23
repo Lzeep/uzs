@@ -27,9 +27,13 @@ Auth::routes();
 //    return view('welcome');
 //});
 
-Route::get('/', function(){
-    return view('home');
-});
+
+
+Route::get('/', 'HomeController@index');
+
+
+
+
 
 Route::get('/app', function (){
     return view('appmap');
@@ -43,36 +47,38 @@ Route::get('/app', function (){
 
 //Route::get('/search', 'TobjectController@search');
 
-Route::get('/getemployees', 'EmployeeController@getEmployees')->name('datatables.getemployees');
-Route::resource('employee', 'EmployeeController');
+Route::group(['middleware' => 'admin'], function(){
+    Route::get('/getemployees', 'EmployeeController@getEmployees')->name('datatables.getemployees');
+    Route::resource('employee', 'EmployeeController');
 
 //Route::get('/getobject', 'TobjectController@getObjects')->name('datatables.getObjects');
 //Route::resource('object', 'TobjectController');
 
-Route::get('/getsubject', 'SubjectController@getSubjects')->name('datatables.getSubjects');
-Route::resource('subject', 'SubjectController');
+    Route::get('/getsubject', 'SubjectController@getSubjects')->name('datatables.getSubjects');
+    Route::resource('subject', 'SubjectController');
 
-Route::get('/getResult', 'ResultController@getresult')->name('datatables.getResult');
-Route::resource('/result', 'ResultController');
+    Route::get('/getResult', 'ResultController@getresult')->name('datatables.getResult');
+    Route::resource('/result', 'ResultController');
 
-Route::get('/getViolation', 'ViolationController@getViolation')->name('datatables.getViolation');
-Route::resource('violation', 'ViolationController');
+    Route::get('/getViolation', 'ViolationController@getViolation')->name('datatables.getViolation');
+    Route::resource('violation', 'ViolationController');
 
-Route::get('/getMtu', 'MtuController@getMtu')->name('datatables.getMtu');
-Route::resource('/mtu', 'MtuController');
-
-
+    Route::get('/getMtu', 'MtuController@getMtu')->name('datatables.getMtu');
+    Route::resource('/mtu', 'MtuController');
 
 
-Route::get('getEdit', 'SubjectController@getAddEditRemoveColumnData')->name('datatables.getAddEditRemoveColumnData');
 
-Route::get('subject/{id}', 'SubjectController@edit');
 
-Route::get('/yandex', 'SubjectController@map');
+    Route::get('getEdit', 'SubjectController@getAddEditRemoveColumnData')->name('datatables.getAddEditRemoveColumnData');
 
-Route::get('/wel', function ()
-{
-    return view('index');
+    Route::get('subject/{id}', 'SubjectController@edit');
+
+    Route::get('/yandex', 'SubjectController@map');
+
+    Route::get('/wel', function ()
+    {
+        return view('index');
+    });
 });
 
 
