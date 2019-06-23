@@ -47,7 +47,7 @@ Route::get('/app', function (){
 
 //Route::get('/search', 'TobjectController@search');
 
-Route::group(['middleware' => 'admin'], function(){
+Route::group(['middleware' => 'auth'], function(){
     Route::get('/getemployees', 'EmployeeController@getEmployees')->name('datatables.getemployees');
     Route::resource('employee', 'EmployeeController');
 
