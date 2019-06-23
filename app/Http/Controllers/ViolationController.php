@@ -102,6 +102,6 @@ class ViolationController extends Controller
     public function destroy(Violation $violation)
     {
         $violation->delete();
-        return redirect(route('violation.index'), $violation);
+        return redirect(route('violation.index'));
     }
 }

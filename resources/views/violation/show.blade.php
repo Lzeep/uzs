@@ -12,7 +12,11 @@
                     @endrole
 
                     @role('admin')
-                <a class="btn btn-outline-danger mr-4" href="{{ route('violation.destroy', $violation) }}">Удалить</a>
+                    <form action="{{ route('violation.destroy', $violation) }}" class="d-none" id="delete-result-{{ $violation->id }}" method="post">
+                        @csrf
+                        @method('delete')
+                    </form>
+                        <a class="btn btn-outline-danger mr-4" onclick="event.preventDefault(); getElementById('delete-result-{{ $violation->id }}').submit()" href="{{ route('violation.destroy', $violation) }}">Удалить</a>
                     @endrole
                     @endif
             </div>

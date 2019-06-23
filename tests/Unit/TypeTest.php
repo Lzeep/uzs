@@ -6,7 +6,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class DatabaseTest extends TestCase
+class TypeTest extends TestCase
 {
     /**
      * A basic unit test example.
@@ -15,8 +15,6 @@ class DatabaseTest extends TestCase
      */
     public function testExample()
     {
-        $this->assertDatabaseHas('subjects', [
-            'name' => "123",
-        ]);
+        $this->assertTrue(true);
     }
 }
