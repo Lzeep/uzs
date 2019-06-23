@@ -56,7 +56,7 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::get('/getsubject', 'SubjectController@getSubjects')->name('datatables.getSubjects');
     Route::resource('subject', 'SubjectController');
-  
+
 
     Route::get('/getResult', 'ResultController@getresult')->name('datatables.getResult');
     Route::resource('/result', 'ResultController');

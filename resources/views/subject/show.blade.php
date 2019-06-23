@@ -100,15 +100,15 @@
                                 <span class="text-secondary">{{ $subject->name }}</span>
                             </div>
                         </div>
-
-                    </div>
-                    <div class="col-6">
                         <div class="mb-5">
                             <p class="text-dark font-weight-bold h4">Владелец объекта</p>
                             <div>
                                 <span class="text-secondary">{{ $subject->owner }}</span>
                             </div>
                         </div>
+                    </div>
+                    <div class="col-6">
+
                         <div class="mb-5">
                             <p class="text-dark font-weight-bold h4">Статус объекта</p>
                             <div>
