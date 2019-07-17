@@ -32,7 +32,7 @@
                     </tr>
                     <tfoot>
                     <tr>
-                        <th>#</th>
+                        <th style="width: 1%">#</th>
                         <th>Район</th>
                         <th>МТУ</th>
                         <th>Тип объекта</th>

@@ -102,7 +102,7 @@ class MtuController extends Controller
     public function destroy(Mtu $mtu)
     {
         $mtu->delete();
-        return redirect()->back();
+        return redirect(route('mtu.index'));
     }
 
     public function ajax(Request $request)
