@@ -99,7 +99,7 @@
                     </div>
                     <div class="form-group">
                         <label>Сотрудник</label>
-                        <select class="form-control" name="employee_id">
+                        <select class="form-control" name="employee_id" id="employee">
                             @foreach($employees as $employee)
                                 <option value="{{ $employee->id }}">{{$employee->Full_name}}</option>
                             @endforeach
@@ -194,6 +194,34 @@
                 }
             }
         </script>
+        {{--<script>--}}
+            {{--$(document).ready(function () {--}}
+                {{--$('#district').click(function () {--}}
+                    {{--var district_id = $('#district').val();--}}
+                    {{--$.ajax({--}}
+                        {{--url: '/employees',--}}
+                        {{--method: 'GET',--}}
+                        {{--dataType: 'json',--}}
+                        {{--data: {--}}
+                            {{--'district_id': district_id--}}
+                        {{--},--}}
+                        {{--success: function (data) {--}}
+                            {{--console.log(data.mtus);--}}
+                            {{--$('#employee').removeClass('disabled');--}}
+                            {{--$('#employee').empty();--}}
+                            {{--for (var employee of data.employees) {--}}
+                                {{--$('#employee').append(--}}
+                                    {{--'<option value="' + employee.id + '">' + employee.Full_name + '</option>'--}}
+                                {{--)--}}
+                            {{--}--}}
+                        {{--},--}}
+                        {{--error: function (error) {--}}
+                            {{--console.log('error');--}}
+                        {{--}--}}
+                    {{--});--}}
+                {{--});--}}
+            {{--});--}}
+        {{--</script>  --}}
         <script>
             $(document).ready(function () {
                 $('#district').click(function () {
@@ -222,4 +250,5 @@
                 });
             });
         </script>
+
     @endpush

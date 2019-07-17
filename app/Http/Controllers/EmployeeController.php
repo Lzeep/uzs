@@ -108,4 +108,13 @@ class EmployeeController extends Controller
         $employee->delete();
         return redirect(route('employee.index'));
     }
+
+    public function ajax(Request $request)
+    {
+        $employee = Employee::where('district_id', '=', $request->district_id)->get();
+
+        return response()->json([
+            'employee'=> $employee,
+        ]);
+    }
 }

@@ -72,6 +72,8 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::get('/mtus', 'MtuController@ajax');
 
+    Route::get('/employees', 'EmployeeController@ajax');
+
 
     Route::get('getEdit', 'SubjectController@getAddEditRemoveColumnData')->name('datatables.getAddEditRemoveColumnData');
 
