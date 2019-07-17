@@ -146,7 +146,7 @@ class SubjectController extends Controller
             'statuses' => Land::all(),
             'violations' => Violation::all(),
             'results' => Result::all(),
-            'employee' => Employee::all(),
+            'employees' => Employee::all(),
             'districts' => District::all(),
             'mtus' => Mtu::all(),
             'types' => Type::all(),
