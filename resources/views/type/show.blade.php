@@ -3,22 +3,19 @@
 @section('content')
     <div class="wrap col-sm-auto ">
         <div class="card col-md-12">
-            <div class="front"><h3> {{ $employee->Full_name }}</h3></div>
-
-
-
+            <div class="front"><h3> {{ $type->name }}</h3></div>
             <div class="back">
                 @if(Auth::user())
                     @role('guide|admin')
-                    <a class="btn btn-success mr-4" href="{{ route('employee.edit', $employee) }}">Редактировать</a>
+                    <a class="btn btn-success mr-4" href="{{ route('type.edit', $type) }}">Редактировать</a>
                     @endrole
 
                     @role('admin')
-                    <form action="{{ route('employee.destroy', $employee) }}" class="d-none" id="delete-result-{{ $employee->id }}" method="post">
+                    <form action="{{ route('type.destroy', $type) }}" class="d-none" id="delete-type-{{ $type->id }}" method="post">
                         @csrf
                         @method('delete')
                     </form>
-                    <a class="btn btn-outline-danger mr-4" onclick="event.preventDefault(); getElementById('delete-result-{{ $employee->id }}').submit()" href="{{ route('employee.destroy', $employee) }}">Удалить</a>
+                    <a class="btn btn-outline-danger mr-4" onclick="event.preventDefault(); getElementById('delete-type-{{ $type->id }}').submit()" href="{{ route('type.destroy', $type) }}">Удалить</a>
                     @endrole
                 @endif
             </div>

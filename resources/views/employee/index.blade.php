@@ -4,6 +4,12 @@
     <div class="container-fluid">
 
         <div class="row">
+            <div class="row justify-content-xl-between">
+                <input type="hidden">
+                @hasanyrole('admin|inspector')
+                <a href="{{ route('employee.create') }}" class="btn btn-success">Добавить нового сотрудника</a>
+                @endhasanyrole
+            </div>
             <div class="col-12" style="overflow: auto;">
                 <table class="table table-bordered" id="employees-table">
                     <thead>
@@ -12,8 +18,8 @@
                         <th>ФИО</th>
                         <th>Адрес</th>
                         <th>Телефон</th>
-                        <th>Должность</th>
-                        {{--<th>Район</th>--}}
+                        <th>Район</th>
+                        <th>Действия</th>
 
                     </tr>
                     </thead>
@@ -47,14 +53,14 @@
             $('#employees-table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{!! route('datatables.getemployees') !!}',
+                ajax: '{!! route('datatables.getEmployees') !!}',
                 columns: [
                     { data: 'id', name: 'id' },
                     { data: 'Full_name', name: 'Full_name' },
                     { data: 'Address', name: 'Address' },
                     { data: 'Phone', name: 'Phone' },
-                    { data: 'position', name: 'position.name' },
-                    // { data: 'district', name: 'district.name' },
+                    { data: 'district.name', name: 'district.name' },
+                    {data: 'action', name: 'action', orderable: false, searchable: false},
 
                 ],
                 "language": {

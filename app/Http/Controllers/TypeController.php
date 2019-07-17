@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Type;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
+
 
 class TypeController extends Controller
 {
@@ -14,8 +16,27 @@ class TypeController extends Controller
      */
     public function index()
     {
-        //
+        $types = Type::all();
+//        dd($types);
+        return view('type.index', [
+            'types' => $types,
+        ]);
     }
+
+
+    public function getType()
+    {
+        $type = Type::select(['id', 'name']);
+        return DataTables::of($type)
+            ->addColumn('action', function ($type)
+            {
+                return '<a href="'.route('type.show', $type).'"  class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Подробнее</a>';
+            })
+
+            ->make(true);
+}
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -24,7 +45,9 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('type.create', [
+            'types' => Type::all(),
+        ]);
     }
 
     /**
@@ -35,7 +58,9 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $type = new Type($request->all());
+        $type->save();
+        return redirect(route('type.index'));
     }
 
     /**
@@ -46,7 +71,7 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        //
+        return view('type.show', ['type' => $type]);
     }
 
     /**
@@ -57,7 +82,7 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        //
+        return view('type.edit', ['type' => $type]);
     }
 
     /**
@@ -69,7 +94,8 @@ class TypeController extends Controller
      */
     public function update(Request $request, Type $type)
     {
-        //
+        $type->update($request->all());
+        return redirect(route('type.index'));
     }
 
     /**
@@ -80,6 +106,7 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+        $type->delete();
+        return redirect(route('type.index'));
     }
 }

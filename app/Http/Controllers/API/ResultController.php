@@ -91,6 +91,8 @@ class ResultController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $result = Result::where('id', $id)->get();
+        $result->delete();
+        return 204;
     }
 }

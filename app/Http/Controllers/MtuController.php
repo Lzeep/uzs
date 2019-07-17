@@ -104,4 +104,13 @@ class MtuController extends Controller
         $mtu->delete();
         return redirect()->back();
     }
+
+    public function ajax(Request $request)
+    {
+        $mtus = Mtu::where('district_id', '=', $request->district_id)->get();
+
+        return response()->json([
+            'mtus'=> $mtus,
+        ]);
+    }
 }

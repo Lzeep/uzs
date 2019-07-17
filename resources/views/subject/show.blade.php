@@ -154,7 +154,7 @@
                         <div class="mb-5">
                             <p class="text-dark font-weight-bold h4">Инспектор</p>
                             <div>
-                                <span class="text-secondary">{{ $subject->employee->name }}</span>
+                                <span class="text-secondary">{{ $subject->employee->Full_name }}</span>
                             </div>
                         </div>
                     </div>

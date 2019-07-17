@@ -10,12 +10,7 @@ class Employee extends Model
 //    {
 //        return $this->hasMany('App\TObject');
 //    }
-
-    public function position()
-    {
-        return $this->belongsTo('App\Position');
-    }
-
+    protected $fillable = ['id', 'Full_name', 'Address', 'Phone', 'district_id'];
 
     public function district()
     {

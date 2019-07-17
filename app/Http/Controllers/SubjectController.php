@@ -9,7 +9,6 @@ use App\Result;
 use App\Land;
 use App\Image;
 use App\Type;
-use App\User;
 use App\Violation;
 use App\Employee;
 use Illuminate\Http\Request;
@@ -83,7 +82,7 @@ class SubjectController extends Controller
         return view('subject.create', [
             'subjects'=>$subjects,
             'statuses' => $statuses,
-            'users' => User::all(),
+            'employees' => $employees,
             'violations' => $violations,
             'results' => $results,
             'districts' => District::all(),
@@ -147,7 +146,7 @@ class SubjectController extends Controller
             'statuses' => Land::all(),
             'violations' => Violation::all(),
             'results' => Result::all(),
-            'users' => User::all(),
+            'employee' => Employee::all(),
             'districts' => District::all(),
             'mtus' => Mtu::all(),
             'types' => Type::all(),

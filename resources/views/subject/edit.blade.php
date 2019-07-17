@@ -83,8 +83,8 @@
                 <div class="form-group">
                     <label>Сотрудник</label>
                     <select name="employee_id" class="form-control" id="">
-                        @foreach($users as $user)
-                            <option value="{{$user->id}}" {{ $user->id === $user->employee_id  ? 'selected' : ''}}>{{$user->name}}</option>
+                        @foreach($employees as $employee)
+                            <option value="{{$employee->id}}" {{ $employee->id === $employee->employee_id  ? 'selected' : ''}}>{{$employee->Full_name}}</option>
                         @endforeach
                     </select>
                 </div>

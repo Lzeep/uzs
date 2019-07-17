@@ -2,13 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\District;
 use App\Employee;
-
-use DB;
-use function foo\func;
 use Illuminate\Http\Request;
-
-use Symfony\Component\VarDumper\Cloner\Data;
 use Yajra\DataTables\DataTables;
 
 class EmployeeController extends Controller
@@ -24,31 +20,14 @@ class EmployeeController extends Controller
     }
     public function getEmployees(Request $request)
     {
-        $employees = Employee::with('position')->select();
-
-        return Datatables::of($employees)
-            ->addColumn('position', function ($item) {
-                return $item->position->name;
+        $employee = Employee::with('district')->select('*');
+        return Datatables::of($employee)
+            ->addColumn('action', function ($employee) {
+                return '<a href="'.route('employee.show', $employee).'"  class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>Подробнее</a>';
             })
             ->make(true);
     }
-    public function getAddEditRemoveColumn()
-    {
-        return view('employee.edit');
-    }
-    public function editData(){
-        $employee = Employee::select(['id', 'Full_name', 'Address', 'Phone', 'position_id', 'district_id']);
 
-        return DataTables::of($$employee)
-            ->addColumn('action', function ($employee){
-                return '<a href="#edit-'.$employee->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
-            })
-            ->editColumn('id', 'ID:{{$id}}')
-            ->make(true);
-    }
-public function filter(Request $request){
-        $employee = Employee::select('*');
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -56,7 +35,10 @@ public function filter(Request $request){
      */
     public function create()
     {
-        //
+        return view('employee.create', [
+            'employees' => Employee::all(),
+            'districts' => District::all(),
+        ]);
     }
 
     /**
@@ -67,7 +49,9 @@ public function filter(Request $request){
      */
     public function store(Request $request)
     {
-        //
+        $employee = new Employee($request->all());
+        $employee->save();
+        return redirect(route('employee.index'));
     }
 
     /**
@@ -78,7 +62,10 @@ public function filter(Request $request){
      */
     public function show(Employee $employee)
     {
-        //
+        return view('employee.show', [
+            'employee' => $employee,
+            'districts' => District::all(),
+        ]);
     }
 
     /**
@@ -89,7 +76,12 @@ public function filter(Request $request){
      */
     public function edit(Employee $employee)
     {
-        //
+
+
+        return view('employee.edit', [
+            'employee' => $employee,
+            'districts' => District::all(),
+        ]);
     }
 
     /**
@@ -101,7 +93,8 @@ public function filter(Request $request){
      */
     public function update(Request $request, Employee $employee)
     {
-        //
+        $employee->update($request->all());
+        return redirect(route('employee.index'));
     }
 
     /**
@@ -112,6 +105,7 @@ public function filter(Request $request){
      */
     public function destroy(Employee $employee)
     {
-        //
+        $employee->delete();
+        return redirect(route('employee.index'));
     }
 }

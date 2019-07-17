@@ -97,11 +97,12 @@
                     </div>
                     <div class="header-menu">
                         <ul>
+                            <li><a href="{{route('subject.index')}}">Объекты</a></li>
                             <li><a href="{{ route('violation.index') }}">Нарушения</a></li>
                             <li><a href="{{ route('mtu.index') }}">МТУ</a></li>
                             <li><a href="{{ route('result.index') }}">Решения</a></li>
+                            <li><a href="{{ route('type.index') }}">Типы объекта</a></li>
                             <li><a href="/yandex">Карта города</a></li>
-                            <li><a href="{{route('subject.index')}}">Объекты</a></li>
                             @if(Auth::user())
                             <li><a href="{{route('employee.index')}}">Сотрудники</a></li>
                             @endif

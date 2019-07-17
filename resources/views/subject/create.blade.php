@@ -100,8 +100,8 @@
                     <div class="form-group">
                         <label>Сотрудник</label>
                         <select class="form-control" name="employee_id">
-                            @foreach($users as $user)
-                                <option value="{{ $user->id }}">{{$user->name}}</option>
+                            @foreach($employees as $employee)
+                                <option value="{{ $employee->id }}">{{$employee->Full_name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -193,5 +193,33 @@
                     });
                 }
             }
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('#district').click(function () {
+                    var district_id = $('#district').val();
+                    $.ajax({
+                        url: '/mtus',
+                        method: 'GET',
+                        dataType: 'json',
+                        data: {
+                            'district_id': district_id
+                        },
+                        success: function (data) {
+                            console.log(data.mtus);
+                            $('#mtu').removeClass('disabled');
+                            $('#mtu').empty();
+                            for (var mtu of data.mtus) {
+                                $('#mtu').append(
+                                    '<option value="' + mtu.id + '">' + mtu.name + '</option>'
+                                )
+                            }
+                        },
+                        error: function (error) {
+                            console.log('error');
+                        }
+                    });
+                });
+            });
         </script>
     @endpush

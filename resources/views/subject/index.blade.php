@@ -99,7 +99,7 @@
                         {data: 'violation.name', name: 'violation.name'},
                         {data: 'result.name', name: 'result.name'},
                         {data: 'document', name: 'document'},
-                        {data: 'employee.name', name: 'employee.name'},
+                        {data: 'employee.Full_name', name: 'employee.Full_name'},
                         {data: 'updated_at', name: 'updated_at'},
                         {data: 'action', name: 'action', orderable: false, searchable: false},
                     ],

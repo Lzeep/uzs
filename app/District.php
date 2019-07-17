@@ -14,5 +14,8 @@ class District extends Model
     {
         return $this->hasMany('App\Subject');
     }
-
+    public function employee()
+    {
+        return $this->hasMany('App\Employee');
+    }
 }
