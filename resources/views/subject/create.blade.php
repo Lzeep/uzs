@@ -6,7 +6,7 @@
                 <form action="{{ route('subject.store') }}" method="post" class="col-10" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <label>Выберите снимок объекта</label>
+                        <label>Выберите фото объекта</label>
                         <input type="file" name="logo">
                     </div>
                     <div class="'form-group">
@@ -47,7 +47,7 @@
                         <input type="text" class="form-control" name="address">
                     </div>
                     <div class="form-group">
-                        <label>Выберите картинки</label>
+                        <label>Выберите документы объекта</label>
                         <input type="file" name="images[]" multiple>
                     </div>
 
@@ -72,7 +72,7 @@
                         <input id="a" type="text" class="form-control" name="sDoc">
                     </div>
                     <div class="form-group">
-                        <label>Реальная площадь объекта</label>
+                        <label>Фактическая площадь объекта</label>
                         <input id="b" type="text" class="form-control" name="sReal">
                     </div>
 

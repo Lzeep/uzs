@@ -9,7 +9,7 @@
 
 
                 <div class="form-group">
-                    <label>Выберите картинки</label>
+                    <label>Выберите фото объекта</label>
                     <input type="file" name="logo" multiple>
                 </div>
                 <div class="'form-group">
@@ -37,7 +37,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Выберите картинки</label>
+                    <label>Выберите документы объекта</label>
                     <input type="file" name="images[]" multiple>
                 </div>
                 <div class="form-group">

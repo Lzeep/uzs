@@ -122,7 +122,7 @@
                             </div>
                         </div>
                         <div class="mb-5">
-                            <p class="text-dark font-weight-bold h4">Реальная площадь</p>
+                            <p class="text-dark font-weight-bold h4">Фактическая площадь</p>
                             <div>
                                 <span class="text-secondary">{{ $subject->sReal }}</span>
                             </div>
