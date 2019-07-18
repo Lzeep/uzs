@@ -27,6 +27,8 @@ Route::apiResource('result', 'API\ResultController');
 
 Route::apiResource('type', 'API\TypeController');
 
+Route::apiResource('employee', 'API\EmployeeController');
+
 
 
 
